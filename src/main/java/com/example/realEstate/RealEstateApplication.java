@@ -1,13 +1,13 @@
-package com.example.waapropertymgmtbackend;
+package com.example.realEstate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WaaPropertyMgmtBackendApplication {
+public class RealEstateApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WaaPropertyMgmtBackendApplication.class, args);
+		SpringApplication.run(RealEstateApplication.class, args);
 	}
 
 }

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>waa-property-mgmt-backend</artifactId>
+	<artifactId>real-estate-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>waa-property-mgmt-backend</name>
 	<description>WAA property management project</description>
