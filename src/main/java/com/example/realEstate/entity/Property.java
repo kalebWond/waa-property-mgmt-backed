@@ -3,7 +3,6 @@ package com.example.realEstate.entity;
 import com.example.realEstate.entity.enums.ListingType;
 import com.example.realEstate.entity.enums.PropertyStatus;
 import com.example.realEstate.entity.enums.PropertyType;
-import com.example.realEstate.entity.enums.RoleType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
