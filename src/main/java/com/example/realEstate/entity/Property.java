@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class Property {
     private PropertyStatus propertyStatus;
     private double lotSize;
     private Date builtYear;
+
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
@@ -43,4 +45,7 @@ public class Property {
     private List<Offer> offers;
     @ManyToMany(mappedBy = "properties")
     private List<Customer> customers;
+
+    //added
+    private LocalDate startedDate;
 }

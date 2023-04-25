@@ -24,4 +24,6 @@ public abstract class User {
     private Role role;
     @Enumerated(EnumType.STRING)
     private UserStatus status;
+
+    boolean activated;
 }

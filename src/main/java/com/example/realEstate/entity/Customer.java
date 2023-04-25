@@ -5,6 +5,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -14,4 +15,8 @@ public class Customer extends User {
     private List<Property> properties;
     @OneToMany(mappedBy = "customer")
     private List<Offer> offers;
+
+    //added
+    private LocalDate dateOfRegistration;
+
 }
