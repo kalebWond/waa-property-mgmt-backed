@@ -12,6 +12,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/properties")
 public class PropertyController {
+    @GetMapping("/{id}")
+    public Property getPropertyById(@PathVariable("id") long id) {
+        return propertyService.findPropertyById(id);
+    }
+
+    @GetMapping("all")
+    public List<Property> getAllProperties() {
+        return propertyService.findAllProperties();
+    }
 
     @Autowired
     private PropertyService propertyService;
@@ -23,17 +32,9 @@ public class PropertyController {
                                         @RequestParam(required = false) Integer minRooms,
                                         @RequestParam(required = false) Integer maxRooms,
                                         @RequestParam(required = false) PropertyType propertyType,
-                                        @RequestParam(required = false) String address) {
-        return propertyService.findPropertiesByCriteria(minPrice, maxPrice, listingType, minRooms, maxRooms, propertyType, address);
+                                        @RequestParam(required = false) String city,
+                                        @RequestParam(required = false) String state){
+        return propertyService.findPropertiesByCriteria(minPrice, maxPrice, listingType, minRooms, maxRooms, propertyType, city, state);
     }
 
-    @GetMapping("/{id}")
-    public Property getPropertyById(@PathVariable("id") long id) {
-        return propertyService.findPropertyById(id);
-    }
-
-    @GetMapping("/")
-    public List<Property> getAllProperties() {
-        return propertyService.findAllProperties();
-    }
 }

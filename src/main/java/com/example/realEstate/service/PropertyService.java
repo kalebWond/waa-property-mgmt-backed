@@ -14,6 +14,9 @@ public interface PropertyService {
 
     public Property findPropertyById(long Id);
 
-    public List<Property> findPropertiesByCriteria(Double minPrice, Double maxPrice, ListingType listingType, Integer minRooms, Integer maxRooms, PropertyType propertyType, String address);
+    public List<Property> findPropertiesByCriteria(Double minPrice, Double maxPrice,
+                                                   ListingType listingType, Integer minRooms,
+                                                   Integer maxRooms, PropertyType propertyType,
+                                                   String city, String state);
 }
 

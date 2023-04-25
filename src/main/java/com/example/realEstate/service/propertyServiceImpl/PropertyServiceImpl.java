@@ -25,6 +25,7 @@ public class PropertyServiceImpl implements PropertyService {
     private EntityManager entityManager;
 
 
+
     @Override
     public List<Property> findAllProperties() {
         return propertyRepository.findAll();
@@ -34,7 +35,7 @@ public class PropertyServiceImpl implements PropertyService {
     public Property findPropertyById(long id) {
         return propertyRepository.findById(id).orElse(null);
     }
-
+    
     @Override
     public List<Property> findPropertiesByCriteria(
             Double minPrice,
@@ -43,7 +44,8 @@ public class PropertyServiceImpl implements PropertyService {
             Integer minRooms,
             Integer maxRooms,
             PropertyType propertyType,
-            String address) {
+            String city,
+            String state) {
 
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Property> query = builder.createQuery(Property.class);
@@ -68,8 +70,11 @@ public class PropertyServiceImpl implements PropertyService {
         if (propertyType != null) {
             predicates.add(builder.equal(root.get("propertyType"), propertyType));
         }
-        if (address != null && !address.isEmpty()) {
-            predicates.add(builder.like(root.get("address"), "%" + address + "%"));
+        if (city != null && !city.isEmpty()) {
+            predicates.add(builder.like(root.get("address").get("city"), "%" + city + "%"));
+        }
+        if (state != null && !state.isEmpty()) {
+            predicates.add(builder.like(root.get("address").get("state"), "%" + state + "%"));
         }
 
         query.where(predicates.toArray(new Predicate[0]));
