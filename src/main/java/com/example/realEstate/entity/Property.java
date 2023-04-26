@@ -60,4 +60,6 @@ public class Property {
 
     //added [createdAt]
     private LocalDate startedDate;
+
+    private long ownerId;
 }

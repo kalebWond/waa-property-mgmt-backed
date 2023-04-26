@@ -98,22 +98,22 @@ VALUES (6, true, 'Central AC', 'Gas', 2000.00),
        (20, true, 'Central AC', 'Gas', 2700.00);
 
 -- Insert dummy data for Property
-INSERT INTO property (id, property_type, price, bedrooms, bathrooms, property_status, lot_size, built_year, address_id, listing_type, property_details_id)
-VALUES (26, 'HOUSE', 150000, 3, 2, 'AVAILABLE', 1200, '2008-01-01', 10, 'SALE', 6),
-       (27, 'APARTMENT', 1000, 1, 1, 'RENTED', 600, '2015-01-01', 20, 'RENT', 7),
-       (28, 'CONDO', 180000, 2, 2, 'SOLD', 900, '2010-01-01', 30, 'SALE', 8),
-       (29, 'TOWNHOUSE', 130000, 2, 2, 'AVAILABLE', 1000, '2012-01-01', 40, 'RENT', 9),
-       (30, 'HOUSE', 300000, 4, 3, 'SOLD', 1800, '2005-01-01', 50, 'SALE', 10),
-       (31, 'APARTMENT', 1100, 1, 1, 'RENTED', 700, '2018-01-01', 60, 'RENT', 11),
-       (32, 'CONDO', 250000, 2, 2, 'PENDING', 1000, '2016-01-01', 70, 'SALE', 12),
-       (33, 'TOWNHOUSE', 140000, 2, 2, 'AVAILABLE', 900, '2010-01-01', 80, 'RENT', 13),
-       (34, 'HOUSE', 180000, 3, 2, 'SOLD', 1200, '2015-01-01', 90, 'SALE', 14),
-       (35, 'APARTMENT', 900, 1, 1, 'RENTED', 600, '2012-01-01', 100, 'RENT', 15),
-       (36, 'CONDO', 200000, 2, 2, 'CONTINGENT', 1000, '2008-01-01', 110, 'SALE', 16),
-       (37, 'TOWNHOUSE', 120000, 2, 2, 'AVAILABLE', 800, '2005-01-01', 120, 'RENT', 17),
-       (38, 'HOUSE', 280000, 4, 3, 'SOLD', 1600, '2010-01-01', 130, 'SALE', 18),
-       (39, 'APARTMENT', 950, 1, 1, 'RENTED', 650, '2015-01-01', 140, 'RENT', 19),
-       (40, 'CONDO', 220000, 2, 2, 'PENDING', 1100, '2012-01-01', 150, 'SALE', 20);
+INSERT INTO property (id, property_type, price, bedrooms, bathrooms, property_status, lot_size, built_year, address_id, listing_type, property_details_id, owner_id)
+VALUES (26, 'HOUSE', 150000, 3, 2, 'AVAILABLE', 1200, '2008-01-01', 10, 'SALE', 6, 26),
+       (27, 'APARTMENT', 1000, 1, 1, 'RENTED', 600, '2015-01-01', 20, 'RENT', 7, 27),
+       (28, 'CONDO', 180000, 2, 2, 'SOLD', 900, '2010-01-01', 30, 'SALE', 8, 28),
+       (29, 'TOWNHOUSE', 130000, 2, 2, 'AVAILABLE', 1000, '2012-01-01', 40, 'RENT', 9, 29),
+       (30, 'HOUSE', 300000, 4, 3, 'SOLD', 1800, '2005-01-01', 50, 'SALE', 10, 30),
+       (31, 'APARTMENT', 1100, 1, 1, 'RENTED', 700, '2018-01-01', 60, 'RENT', 11, 31),
+       (32, 'CONDO', 250000, 2, 2, 'PENDING', 1000, '2016-01-01', 70, 'SALE', 12, 32),
+       (33, 'TOWNHOUSE', 140000, 2, 2, 'AVAILABLE', 900, '2010-01-01', 80, 'RENT', 13, 33),
+       (34, 'HOUSE', 180000, 3, 2, 'SOLD', 1200, '2015-01-01', 90, 'SALE', 14, 34),
+       (35, 'APARTMENT', 900, 1, 1, 'RENTED', 600, '2012-01-01', 100, 'RENT', 15, 35),
+       (36, 'CONDO', 200000, 2, 2, 'CONTINGENT', 1000, '2008-01-01', 110, 'SALE', 16, 36),
+       (37, 'TOWNHOUSE', 120000, 2, 2, 'AVAILABLE', 800, '2005-01-01', 120, 'RENT', 17, 37),
+       (38, 'HOUSE', 280000, 4, 3, 'SOLD', 1600, '2010-01-01', 130, 'SALE', 18, 38),
+       (39, 'APARTMENT', 950, 1, 1, 'RENTED', 650, '2015-01-01', 140, 'RENT', 19, 39),
+       (40, 'CONDO', 220000, 2, 2, 'PENDING', 1100, '2012-01-01', 150, 'SALE', 20, 40);
 
 -- Insert dummy data for owner_properties
 INSERT INTO owner_properties (owner_id, properties_id)

@@ -35,6 +35,7 @@ class PropertyServiceImpl implements PropertyService {
     @Override
     public void addProperty(long ownerId, Property property) {
         Owner owner = ownerRepository.findById(ownerId).orElseThrow(() -> new RuntimeException("Owner not found"));
+        property.setOwnerId(ownerId);
         owner.getProperties().add(property);
         ownerRepository.save(owner);
     }
@@ -75,7 +76,10 @@ class PropertyServiceImpl implements PropertyService {
                                               Double price, LocalDateTime submittedAt) {
         // TO-DO
         // NEED TO BE FILTERED BY OWNER ID AS WELL
-        return searchOffersDao.searchPropertyCriteria(pptId, city, state, price,submittedAt);
+//        Owner  / getOwnerById
+        // Properties owner.getProperties()
+//        properties.stream(property.getOffers().
+        return searchOffersDao.searchPropertyCriteria(id, pptId, city, state, price,submittedAt);
     }
 
     @Override

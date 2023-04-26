@@ -34,4 +34,5 @@ public class Offer {
 
     @Enumerated(EnumType.STRING)
     private OfferStatus status;
+    private long ownerId;
 }

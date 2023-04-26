@@ -18,7 +18,7 @@ import java.util.List;
 public class SearchOffersDao {
     private final EntityManager em;
 
-    public List<Offer> searchPropertyCriteria(Long propertyId, String city, String state,
+    public List<Offer> searchPropertyCriteria(Long ownerId, Long propertyId, String city, String state,
                                                Double price, LocalDateTime submittedAt){ // You can make a search request object for the input
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
         CriteriaQuery<Offer> criteriaQuery = criteriaBuilder.createQuery(Offer.class);
@@ -27,8 +27,8 @@ public class SearchOffersDao {
         // select * from Offer
         Root<Offer> root = criteriaQuery.from(Offer.class);
 
-//        Predicate ownerPredicate = criteriaBuilder.equal(root.get("property").get("id"), propertyId);
-//        predicates.add(ownerPredicate);
+        Predicate ownerPredicate = criteriaBuilder.equal(root.get("ownerId"), ownerId);
+        predicates.add(ownerPredicate);
 
         if(propertyId != null) {
             Predicate propertyPredicate = criteriaBuilder.equal(root.get("property").get("id"), propertyId);
