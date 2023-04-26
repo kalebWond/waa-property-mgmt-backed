@@ -4,6 +4,8 @@ import com.example.realEstate.entity.enums.ListingType;
 import com.example.realEstate.entity.enums.PropertyStatus;
 import com.example.realEstate.entity.enums.PropertyType;
 import com.example.realEstate.entity.enums.RoleType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +19,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,19 +34,29 @@ public class Property {
     private double lotSize;
     private Date builtYear;
 
-    @OneToOne
+
+
+
+    @OneToOne(cascade = {CascadeType.ALL})
+
     @JoinColumn(name = "address_id")
     private Address address;
+
+    @Enumerated(EnumType.STRING)
     private ListingType listingType;
+
     @OneToMany
     @JoinColumn(name = "property_id")
     private List<Photos> photos;
+
     @OneToOne
     @JoinColumn(name = "property_details_id")
     private PropertyDetails propertyDetails;
-    @OneToMany(mappedBy = "property")
+
+    @OneToMany
     private List<Offer> offers;
-    @ManyToMany(mappedBy = "properties")
+
+    @ManyToMany
     private List<Customer> customers;
 
     //added
