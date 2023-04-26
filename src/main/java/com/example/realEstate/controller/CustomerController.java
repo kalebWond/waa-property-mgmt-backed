@@ -19,9 +19,12 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @PostMapping("/favorites")
+    @PostMapping("/{id}/favorites")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addToFavorites(@RequestBody FavoriteRequest request) {
+    public void addToFavorites(@PathVariable long id, @RequestBody FavoriteRequest request) {
+        if(id != request.getCustomer_id()) {
+            throw new RuntimeException("Wrong ID match");
+        }
         customerService.addToFavorites(request.getCustomer_id(), request.getProperty_id());
     }
 
@@ -38,9 +41,12 @@ public class CustomerController {
         customerService.removeFromFavorites(id, propertyId);
     }
 
-    @PostMapping("/offers")
+    @PostMapping("/{id}/offers")
     @ResponseStatus(HttpStatus.CREATED)
-    public void sendOffer(@RequestBody Offer offer) {
+    public void sendOffer(@PathVariable long id, @RequestBody Offer offer) {
+        if(id != offer.getCustomer().getId()) {
+            throw new RuntimeException("Wrong ID match");
+        }
         customerService.makeOffer(offer);
     }
 
