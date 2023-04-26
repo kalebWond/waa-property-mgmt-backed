@@ -23,11 +23,9 @@ public class SecurityConfig {
     private final UserDetailsService userDetailsService;
     private final JwtFilter jwtFilter;
 
-    String[] ownerRole = {"OWNER"}; //, "CUSTOMER", "ADMIM"};
+    String[] ownerRole = {"OWNER"};
     String [] customerRole = {"CUSTOMER"};
-    String [] adminRole = {"ADMIM"};
-    // Try this :)
-
+    String [] adminRole = {"ADMIN"};
 
     @Bean
     public UserDetailsService userDetailsSvc() {
@@ -44,11 +42,11 @@ public class SecurityConfig {
         http
                 .csrf().disable().cors().and()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/authenticate/**").permitAll()
-//                .requestMatchers("/api/v1/owners").hasAuthority("CLIENT")
-                .requestMatchers("/api/v1/owners").hasAnyAuthority(ownerRole) // Dynamic authorities
-                .requestMatchers("/api/v1/customers").hasAnyAuthority(customerRole)
-                .requestMatchers("/api/v1/admin").hasAnyAuthority(adminRole)
+                .requestMatchers("/api/v1/auth/**").permitAll()
+                .requestMatchers("/api/v1/properties/**").permitAll()
+                .requestMatchers("/api/v1/owners/**").hasAnyAuthority(ownerRole) // Dynamic authorities
+                .requestMatchers("/api/v1/customers/**").hasAnyAuthority(customerRole)
+                .requestMatchers("/api/v1/admin/**").hasAnyAuthority(adminRole)
 
                 .anyRequest()
                 .authenticated()

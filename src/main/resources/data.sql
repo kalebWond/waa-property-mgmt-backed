@@ -6,8 +6,8 @@ INSERT INTO role (id, role) VALUES
 
 -- Insert Customer entries
 INSERT INTO customer (id, first_name, last_name, email, password, role_id, status) VALUES
-                                                                                       (1, 'John', 'Doe', 'johndoe@gmail.com', 'password1', 2, 'ACTIVE'),
-                                                                                       (2, 'Jane', 'Doe', 'janedoe@gmail.com', 'password2', 2, 'ACTIVE'),
+                                                                                       (1, 'John', 'Doe', 'johndoe@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 2, 'ACTIVE'),
+                                                                                       (2, 'Jane', 'Doe', 'janedoe@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 2, 'ACTIVE'),
                                                                                        (3, 'Bob', 'Smith', 'bobsmith@gmail.com', 'password3', 2, 'ACTIVE'),
                                                                                        (4, 'Alice', 'Johnson', 'alicejohnson@gmail.com', 'password4', 2, 'ACTIVE'),
                                                                                        (5, 'Mike', 'Williams', 'mikewilliams@gmail.com', 'password5', 2, 'ACTIVE'),
@@ -34,7 +34,7 @@ INSERT INTO customer (id, first_name, last_name, email, password, role_id, statu
 
 -- Insert Owner entries
 INSERT INTO owner (id, first_name, last_name, email, password, role_id, status) VALUES
-                                                                                    (26, 'Michael', 'Brown', 'michaelbrown@gmail.com', 'password26', 1, 'ACTIVE'),
+                                                                                    (26, 'Michael', 'Brown', 'brown@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 1, 'ACTIVE'),
                                                                                     (27, 'Jennifer', 'Johnson', 'jenniferjohnson@gmail.com', 'password27', 1, 'ACTIVE'),
                                                                                     (28, 'William', 'Lee', 'williamlee@gmail.com', 'password28', 1, 'ACTIVE'),
                                                                                     (29, 'Sophia', 'Harris', 'sophiaharris@gmail.com', 'password29', 1, 'ACTIVE'),

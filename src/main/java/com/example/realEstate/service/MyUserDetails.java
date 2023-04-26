@@ -18,10 +18,12 @@ public class MyUserDetails implements UserDetails {
     private String password;
     private List<Role> roles = new ArrayList<>();
 
+
     public MyUserDetails(User user){
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.roles.add(user.getRole());
+
     }
 
     @Override
@@ -40,6 +42,8 @@ public class MyUserDetails implements UserDetails {
     public String getUsername() {
         return email;
     }
+
+
 
     @Override
     public boolean isAccountNonExpired() {

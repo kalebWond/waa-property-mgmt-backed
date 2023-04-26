@@ -23,4 +23,5 @@ public class Customer extends User {
     @OneToMany(mappedBy = "customer")
     @JsonManagedReference
     private List<Offer> offers;
+
 }
