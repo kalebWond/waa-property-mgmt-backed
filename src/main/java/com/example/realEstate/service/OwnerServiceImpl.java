@@ -1,4 +1,4 @@
-package com.example.realEstate.service.Impl;
+package com.example.realEstate.service;
 
 import com.example.realEstate.entity.Owner;
 import com.example.realEstate.repository.OwnerRepository;

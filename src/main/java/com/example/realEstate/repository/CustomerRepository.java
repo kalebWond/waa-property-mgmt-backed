@@ -1,4 +1,4 @@
-package com.example.realEstate.repostitory;
+package com.example.realEstate.repository;
 
 import com.example.realEstate.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
