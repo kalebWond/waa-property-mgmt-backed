@@ -4,9 +4,9 @@ import com.example.realEstate.entity.Customer;
 import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Property;
 import com.example.realEstate.entity.enums.OfferStatus;
-import com.example.realEstate.repostitory.CustomerRepository;
-import com.example.realEstate.repostitory.OfferRepository;
-import com.example.realEstate.repostitory.PropertyRepository;
+import com.example.realEstate.repository.CustomerRepository;
+import com.example.realEstate.repository.OfferRepository;
+import com.example.realEstate.repository.PropertyRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -42,6 +42,9 @@ public class CustomerServiceImpl implements CustomerService {
     public void removeFromFavorites(long customer_id, long property_id) {
         Customer customer = customerRepository.findById(customer_id).orElseThrow(() -> new RuntimeException("Customer not found"));
         Property property = propertyRepository.findById(property_id).orElseThrow(() -> new RuntimeException("Property not found"));
+        if(!customer.getProperties().contains(property)) {
+            throw new RuntimeException("Property not found");
+        }
         customer.getProperties().remove(property);
         customerRepository.save(customer);
     }

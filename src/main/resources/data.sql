@@ -62,21 +62,21 @@ INSERT INTO owner (id, first_name, last_name, email, password, role_id, status) 
 
 -- Insert dummy data for Address
 INSERT INTO Address (id, street, city, state, zipcode)
-VALUES (1, '1234 Elm St', 'San Francisco', 'CA', '94107'),
-       (2, '5678 Oak St', 'Los Angeles', 'CA', '90001'),
-       (3, '9101 Maple St', 'New York', 'NY', '10001'),
-       (4, '2345 Cedar St', 'Chicago', 'IL', '60601'),
-       (5, '6789 Birch St', 'Houston', 'TX', '77001'),
-       (6, '1111 Pine St', 'Philadelphia', 'PA', '19101'),
-       (7, '2222 Willow St', 'Phoenix', 'AZ', '85001'),
-       (8, '3333 Cedar St', 'San Francisco', 'CA', '94107'),
-       (9, '4444 Oak St', 'Los Angeles', 'CA', '90001'),
-       (10, '5555 Maple St', 'New York', 'NY', '10001'),
-       (11, '6666 Cedar St', 'Chicago', 'IL', '60601'),
-       (12, '7777 Birch St', 'Houston', 'TX', '77001'),
-       (13, '8888 Pine St', 'Philadelphia', 'PA', '19101'),
-       (14, '9999 Willow St', 'Phoenix', 'AZ', '85001'),
-       (15, '1010 Cedar St', 'San Francisco', 'CA', '94107');
+VALUES (10, '1234 Elm St', 'San Francisco', 'CA', '94107'),
+       (20, '5678 Oak St', 'Los Angeles', 'CA', '90001'),
+       (30, '9101 Maple St', 'New York', 'NY', '10001'),
+       (40, '2345 Cedar St', 'Chicago', 'IL', '60601'),
+       (50, '6789 Birch St', 'Houston', 'TX', '77001'),
+       (60, '1111 Pine St', 'Philadelphia', 'PA', '19101'),
+       (70, '2222 Willow St', 'Phoenix', 'AZ', '85001'),
+       (80, '3333 Cedar St', 'San Francisco', 'CA', '94107'),
+       (90, '4444 Oak St', 'Los Angeles', 'CA', '90001'),
+       (100, '5555 Maple St', 'New York', 'NY', '10001'),
+       (110, '6666 Cedar St', 'Chicago', 'IL', '60601'),
+       (120, '7777 Birch St', 'Houston', 'TX', '77001'),
+       (130, '8888 Pine St', 'Philadelphia', 'PA', '19101'),
+       (140, '9999 Willow St', 'Phoenix', 'AZ', '85001'),
+       (150, '1010 Cedar St', 'San Francisco', 'CA', '94107');
 
 
 -- Insert dummy data for PropertyDetails
@@ -99,37 +99,56 @@ VALUES (6, true, 'Central AC', 'Gas', 2000.00),
 
 -- Insert dummy data for Property
 INSERT INTO property (id, property_type, price, bedrooms, bathrooms, property_status, lot_size, built_year, address_id, listing_type, property_details_id)
-VALUES (26, 'HOUSE', 150000, 3, 2, 'AVAILABLE', 1200, '2008-01-01', 1, 'SALE', 6),
-       (27, 'APARTMENT', 1000, 1, 1, 'RENTED', 600, '2015-01-01', 2, 'RENT', 7),
-       (28, 'CONDO', 180000, 2, 2, 'SOLD', 900, '2010-01-01', 3, 'SALE', 8),
-       (29, 'TOWNHOUSE', 130000, 2, 2, 'AVAILABLE', 1000, '2012-01-01', 4, 'RENT', 9),
-       (30, 'HOUSE', 300000, 4, 3, 'SOLD', 1800, '2005-01-01', 5, 'SALE', 10),
-       (31, 'APARTMENT', 1100, 1, 1, 'RENTED', 700, '2018-01-01', 6, 'RENT', 11),
-       (32, 'CONDO', 250000, 2, 2, 'PENDING', 1000, '2016-01-01', 7, 'SALE', 12),
-       (33, 'TOWNHOUSE', 140000, 2, 2, 'AVAILABLE', 900, '2010-01-01', 8, 'RENT', 13),
-       (34, 'HOUSE', 180000, 3, 2, 'SOLD', 1200, '2015-01-01', 9, 'SALE', 14),
-       (35, 'APARTMENT', 900, 1, 1, 'RENTED', 600, '2012-01-01', 10, 'RENT', 15),
-       (36, 'CONDO', 200000, 2, 2, 'CONTINGENT', 1000, '2008-01-01', 11, 'SALE', 16),
-       (37, 'TOWNHOUSE', 120000, 2, 2, 'AVAILABLE', 800, '2005-01-01', 12, 'RENT', 17),
-       (38, 'HOUSE', 280000, 4, 3, 'SOLD', 1600, '2010-01-01', 13, 'SALE', 18),
-       (39, 'APARTMENT', 950, 1, 1, 'RENTED', 650, '2015-01-01', 14, 'RENT', 19),
-       (40, 'CONDO', 220000, 2, 2, 'PENDING', 1100, '2012-01-01', 15, 'SALE', 20);
+VALUES (26, 'HOUSE', 150000, 3, 2, 'AVAILABLE', 1200, '2008-01-01', 10, 'SALE', 6),
+       (27, 'APARTMENT', 1000, 1, 1, 'RENTED', 600, '2015-01-01', 20, 'RENT', 7),
+       (28, 'CONDO', 180000, 2, 2, 'SOLD', 900, '2010-01-01', 30, 'SALE', 8),
+       (29, 'TOWNHOUSE', 130000, 2, 2, 'AVAILABLE', 1000, '2012-01-01', 40, 'RENT', 9),
+       (30, 'HOUSE', 300000, 4, 3, 'SOLD', 1800, '2005-01-01', 50, 'SALE', 10),
+       (31, 'APARTMENT', 1100, 1, 1, 'RENTED', 700, '2018-01-01', 60, 'RENT', 11),
+       (32, 'CONDO', 250000, 2, 2, 'PENDING', 1000, '2016-01-01', 70, 'SALE', 12),
+       (33, 'TOWNHOUSE', 140000, 2, 2, 'AVAILABLE', 900, '2010-01-01', 80, 'RENT', 13),
+       (34, 'HOUSE', 180000, 3, 2, 'SOLD', 1200, '2015-01-01', 90, 'SALE', 14),
+       (35, 'APARTMENT', 900, 1, 1, 'RENTED', 600, '2012-01-01', 100, 'RENT', 15),
+       (36, 'CONDO', 200000, 2, 2, 'CONTINGENT', 1000, '2008-01-01', 110, 'SALE', 16),
+       (37, 'TOWNHOUSE', 120000, 2, 2, 'AVAILABLE', 800, '2005-01-01', 120, 'RENT', 17),
+       (38, 'HOUSE', 280000, 4, 3, 'SOLD', 1600, '2010-01-01', 130, 'SALE', 18),
+       (39, 'APARTMENT', 950, 1, 1, 'RENTED', 650, '2015-01-01', 140, 'RENT', 19),
+       (40, 'CONDO', 220000, 2, 2, 'PENDING', 1100, '2012-01-01', 150, 'SALE', 20);
+
+-- Insert dummy data for owner_properties
+INSERT INTO owner_properties (owner_id, properties_id)
+VALUES (26, 26),
+       (27, 27),
+       (28, 28),
+       (29, 29),
+       (30, 30),
+       (31, 31),
+       (32, 32),
+       (33, 33),
+       (34, 34),
+       (35, 35),
+       (36, 36),
+       (37, 37),
+       (38, 38),
+       (39, 39),
+       (40, 40);
+
 
 INSERT INTO photos (id, link, property_id)
-VALUES (1, 'https://picsum.photos/200/300', 26),
-       (2, 'https://picsum.photos/200/300', 27),
-       (3, 'https://picsum.photos/200/300', 28),
-       (4, 'https://picsum.photos/200/300', 29),
-       (5, 'https://picsum.photos/200/300', 30),
-       (6, 'https://picsum.photos/200/300', 31),
-       (7, 'https://picsum.photos/200/300', 32),
-       (8, 'https://picsum.photos/200/300', 33),
-       (9, 'https://picsum.photos/200/300', 34),
-       (10, 'https://picsum.photos/200/300', 35),
-       (11, 'https://picsum.photos/200/300', 36),
-       (12, 'https://picsum.photos/200/300', 37),
-       (13, 'https://picsum.photos/200/300', 38),
-       (14, 'https://picsum.photos/200/300', 39),
-       (15, 'https://picsum.photos/200/300', 40);
+VALUES (10, 'https://picsum.photos/200/300', 26),
+       (20, 'https://picsum.photos/200/300', 27),
+       (30, 'https://picsum.photos/200/300', 28),
+       (40, 'https://picsum.photos/200/300', 29),
+       (50, 'https://picsum.photos/200/300', 30),
+       (60, 'https://picsum.photos/200/300', 31),
+       (70, 'https://picsum.photos/200/300', 32),
+       (80, 'https://picsum.photos/200/300', 33),
+       (90, 'https://picsum.photos/200/300', 34),
+       (100, 'https://picsum.photos/200/300', 35),
+       (110, 'https://picsum.photos/200/300', 36),
+       (120, 'https://picsum.photos/200/300', 37),
+       (130, 'https://picsum.photos/200/300', 38),
+       (140, 'https://picsum.photos/200/300', 39),
+       (150, 'https://picsum.photos/200/300', 40);
 
 
