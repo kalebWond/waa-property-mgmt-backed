@@ -18,6 +18,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
