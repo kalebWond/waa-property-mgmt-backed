@@ -19,7 +19,6 @@ public class AdminController {
     @Autowired
     CustomerService customerService;
 
-
     @Autowired
     OwnerService ownerService;
 
