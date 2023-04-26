@@ -131,4 +131,9 @@ class PropertyServiceImpl implements PropertyService {
         return entityManager.createQuery(query).getResultList();
     }
 
+
+    @Override
+    public List<Property> findPropertyStatus() {
+        return propertyRepository.findAllByPropertyStatus(PropertyStatus.RENTED);
+    }
 }

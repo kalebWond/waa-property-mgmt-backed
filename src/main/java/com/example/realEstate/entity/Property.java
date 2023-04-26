@@ -58,5 +58,6 @@ public class Property {
     @ManyToMany(mappedBy = "properties")
     private List<Customer> customers;
 
-
+    //added [createdAt]
+    private LocalDate startedDate;
 }
