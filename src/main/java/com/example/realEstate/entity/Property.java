@@ -29,7 +29,7 @@ public class Property {
     private PropertyStatus propertyStatus;
     private double lotSize;
     private Date builtYear;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "address_id")
     private Address address;
     private ListingType listingType;
