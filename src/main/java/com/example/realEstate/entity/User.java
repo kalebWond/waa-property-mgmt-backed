@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -24,6 +26,5 @@ public abstract class User {
     private Role role;
     @Enumerated(EnumType.STRING)
     private UserStatus status;
-    //added
-    private boolean activated;
+    private LocalDateTime dateOfRegistration;
 }

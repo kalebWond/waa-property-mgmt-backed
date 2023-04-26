@@ -4,6 +4,7 @@ import com.example.realEstate.entity.Customer;
 import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Property;
 import com.example.realEstate.entity.enums.OfferStatus;
+import com.example.realEstate.entity.enums.UserStatus;
 import com.example.realEstate.repository.CustomerRepository;
 import com.example.realEstate.repository.OfferRepository;
 import com.example.realEstate.repository.PropertyRepository;
@@ -97,7 +98,7 @@ public class CustomerServiceImpl implements CustomerService {
     public void activateCustomer(Long id) {
         var isCustomer= customerRepository.findById(id);
         if(isCustomer.isPresent()){
-            isCustomer.get().setActivated(true);
+            isCustomer.get().setStatus(UserStatus.ACTIVE);
             customerRepository.save(isCustomer.get());
 
         }
@@ -107,7 +108,7 @@ public class CustomerServiceImpl implements CustomerService {
     public void deactivateCustomer(long id){
         var isCustomer= customerRepository.findById(id);
         if(isCustomer.isPresent()){
-            isCustomer.get().setActivated(false);
+            isCustomer.get().setStatus(UserStatus.DEACTIVE);
             customerRepository.save(isCustomer.get());
         }
     }

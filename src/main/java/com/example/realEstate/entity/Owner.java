@@ -17,9 +17,4 @@ import java.util.List;
 public class Owner extends User {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Property> properties;
-
-
-    //added
-    private LocalDate dateOfRegistration;
-
 }

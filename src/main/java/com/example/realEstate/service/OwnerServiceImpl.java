@@ -1,6 +1,7 @@
 package com.example.realEstate.service;
 
 import com.example.realEstate.entity.Owner;
+import com.example.realEstate.entity.enums.UserStatus;
 import com.example.realEstate.repository.OwnerRepository;
 import com.example.realEstate.service.OwnerService;
 import lombok.RequiredArgsConstructor;
@@ -50,7 +51,7 @@ public class OwnerServiceImpl implements OwnerService {
     public void activateOwner(Long id) {
         var isOwner= ownerRepository.findById(id);
         if(isOwner.isPresent()){
-            isOwner.get().setActivated(true);
+            isOwner.get().setStatus(UserStatus.ACTIVE);
             ownerRepository.save(isOwner.get());
         }
     }
@@ -60,7 +61,7 @@ public class OwnerServiceImpl implements OwnerService {
     public void deactivateOwner(Long id) {
         var isOwner= ownerRepository.findById(id);
         if(isOwner.isPresent()){
-            isOwner.get().setActivated(false);
+            isOwner.get().setStatus(UserStatus.DEACTIVE);
             ownerRepository.save(isOwner.get());
         }
     }
