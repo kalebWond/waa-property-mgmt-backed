@@ -12,27 +12,24 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/owners")
+@RequestMapping("/api/v1/owners")
 @CrossOrigin(origins = {"*"})
 @RequiredArgsConstructor
 public class OwnerController {
 
     private final PropertyService propertyService;
-    private final OwnerService ownerService;
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("{id}/properties")
     public List<Property> getAll(@PathVariable long id) {
-        return propertyService.getAllProperties();
+        return propertyService.getAllPropertiesByOwnerId(id);
     }
-
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{id}/properties")
-    public Property save(@PathVariable long id, @RequestBody Property property) {
-        return propertyService.save(property);
+    public void save(@PathVariable long id, @RequestBody Property property) {
+        propertyService.addProperty(id, property);
     }
-
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("{OwnerId}/properties/{Id}")
@@ -42,27 +39,25 @@ public class OwnerController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("{id}/properties/{id}")
-    public void delete(@PathVariable int id) {
-        propertyService.deleteById(id);
+    @DeleteMapping("{id}/properties/{pptId}")
+    public void delete(@PathVariable int id, @PathVariable int pptId) {
+        propertyService.deleteByIdAndOwnerId(pptId, id);
     }
 
     @PutMapping("{id}/properties/{pptId}")
-    public void update(@PathVariable("pptId") int propertyId, @RequestBody Property property) {
-        propertyService.updatePropertyById(propertyId,property);
+    public void update(@PathVariable long id, @PathVariable("pptId") int propertyId, @RequestBody Property property) {
+        propertyService.updatePropertyById(id, propertyId, property);
     }
 
-    @GetMapping("{id}/properties/{id}/offers/filter")
+    @GetMapping("{id}/offers")
     public List<Offer> searchOffers(
             @PathVariable("id")Long id,
-            @RequestParam(value = "price", required = false) double price,
+            @RequestParam(value = "propertyId", required = false) Long pptId,
+            @RequestParam(value = "price", required = false) Double price,
             @RequestParam(value = "city", required = false) String city,
             @RequestParam(value = "state", required = false) String state,
             @RequestParam(value = "submittedAt",required = false) LocalDateTime submittedAt){
-        return propertyService.searchPropertyCriteria(id, city, state, price, submittedAt);
+        return propertyService.searchPropertyCriteria(id, pptId, city, state, price, submittedAt);
     }
-
-
-
 
 }

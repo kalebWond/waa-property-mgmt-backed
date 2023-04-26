@@ -1,4 +1,4 @@
-package com.example.realEstate.Service;
+package com.example.realEstate.service;
 
 import com.example.realEstate.entity.Admin;
 import com.example.realEstate.entity.User;

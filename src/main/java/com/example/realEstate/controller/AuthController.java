@@ -1,4 +1,4 @@
-package com.example.realEstate.Controller;
+package com.example.realEstate.controller;
 
 import com.example.realEstate.entity.User;
 import org.springframework.web.bind.annotation.GetMapping;

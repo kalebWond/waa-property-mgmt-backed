@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Repository
 @RequiredArgsConstructor
-public class searchOffersDao {
+public class SearchOffersDao {
     private final EntityManager em;
 
     public List<Offer> searchPropertyCriteria(Long propertyId, String city, String state,
@@ -27,19 +27,24 @@ public class searchOffersDao {
         // select * from Offer
         Root<Offer> root = criteriaQuery.from(Offer.class);
 
-        Predicate offerPredicate = criteriaBuilder.equal(root.get("property"), propertyId);
-        predicates.add(offerPredicate);
+//        Predicate ownerPredicate = criteriaBuilder.equal(root.get("property").get("id"), propertyId);
+//        predicates.add(ownerPredicate);
+
+        if(propertyId != null) {
+            Predicate propertyPredicate = criteriaBuilder.equal(root.get("property").get("id"), propertyId);
+            predicates.add(propertyPredicate);
+        }
 
         if(city !=null){
-            Predicate cityPredicate = criteriaBuilder.like(root.get("property").get("address").get("city"),"%" + city + "%");
+            Predicate cityPredicate = criteriaBuilder.like(criteriaBuilder.lower(root.get("property").get("address").get("city")),"%" + city.toLowerCase() + "%");
             predicates.add(cityPredicate);
         }
         if(state!=null){
-            Predicate statePredicate = criteriaBuilder.like(root.get("property").get("address").get("state"),state);
+            Predicate statePredicate = criteriaBuilder.like(criteriaBuilder.lower(root.get("property").get("address").get("state")), state.toLowerCase());
             predicates.add(statePredicate);
         }
         if(price!=null){
-            Predicate pricePredicate = criteriaBuilder.equal(root.get("price"),(double)price);
+            Predicate pricePredicate = criteriaBuilder.greaterThanOrEqualTo(root.get("price"), price);
             predicates.add(pricePredicate);
         }
         if(submittedAt!=null){

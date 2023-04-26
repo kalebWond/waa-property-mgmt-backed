@@ -1,8 +1,8 @@
-package com.example.realEstate.Controller;
+package com.example.realEstate.controller;
 
-import com.example.realEstate.Service.CustomerService;
-import com.example.realEstate.Service.OwnerService;
-import com.example.realEstate.Service.PropertyService;
+import com.example.realEstate.service.CustomerService;
+import com.example.realEstate.service.OwnerService;
+import com.example.realEstate.service.PropertyService;
 import com.example.realEstate.entity.Customer;
 import com.example.realEstate.entity.Owner;
 import com.example.realEstate.entity.Property;

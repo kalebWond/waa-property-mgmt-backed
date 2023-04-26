@@ -1,5 +1,6 @@
 package com.example.realEstate.service;
 
+import com.example.realEstate.entity.Customer;
 import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Property;
 
@@ -22,4 +23,10 @@ public interface CustomerService {
     void withdrawOffer(long customerId, long id);
 
     void updateOfferPrice(long customerId, long id, double price);
+
+    public List<Customer> findAllCustomers();
+
+    public void activateCustomer(Long id);
+
+    public void deactivateCustomer(long id);
 }

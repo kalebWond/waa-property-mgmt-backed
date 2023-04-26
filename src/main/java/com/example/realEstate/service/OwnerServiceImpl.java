@@ -1,4 +1,4 @@
-package com.example.realEstate.service.Impl;
+package com.example.realEstate.service;
 
 import com.example.realEstate.entity.Owner;
 import com.example.realEstate.repository.OwnerRepository;
@@ -38,5 +38,30 @@ public class OwnerServiceImpl implements OwnerService {
     public void deleteById(long id) {
         ownerRepository.deleteById(id);
 
+    }
+
+
+    @Override
+    public List<Owner> findAll() {
+        return ownerRepository.findAllOwnerByRegistration();
+    }
+
+    @Override
+    public void activateOwner(Long id) {
+        var isOwner= ownerRepository.findById(id);
+        if(isOwner.isPresent()){
+            isOwner.get().setActivated(true);
+            ownerRepository.save(isOwner.get());
+        }
+    }
+
+
+    @Override
+    public void deactivateOwner(Long id) {
+        var isOwner= ownerRepository.findById(id);
+        if(isOwner.isPresent()){
+            isOwner.get().setActivated(false);
+            ownerRepository.save(isOwner.get());
+        }
     }
 }

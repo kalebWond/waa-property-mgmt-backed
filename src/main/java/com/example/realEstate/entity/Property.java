@@ -19,44 +19,43 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Enumerated(EnumType.STRING)
     private PropertyType propertyType;
+
     private double price;
     private int bedrooms;
-    private int bathrooms;
+    private double bathrooms;
+
     @Enumerated(EnumType.STRING)
     private PropertyStatus propertyStatus;
+
     private double lotSize;
-    private Date builtYear;
-
-
-
-
-    @OneToOne(cascade = {CascadeType.ALL})
-
-    @JoinColumn(name = "address_id")
-    private Address address;
+    private LocalDate builtYear;
 
     @Enumerated(EnumType.STRING)
     private ListingType listingType;
 
-    @OneToMany
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "address_id")
+    private Address address;
+
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "property_id")
     private List<Photos> photos;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "property_details_id")
     private PropertyDetails propertyDetails;
 
     @OneToMany
     private List<Offer> offers;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "properties")
     private List<Customer> customers;
 
     //added
