@@ -1,18 +1,29 @@
 package com.example.realEstate.service;
 
+import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Owner;
+import com.example.realEstate.entity.Property;
+import com.example.realEstate.entity.enums.ListingType;
+import com.example.realEstate.entity.enums.OfferStatus;
+import com.example.realEstate.entity.enums.PropertyStatus;
 import com.example.realEstate.entity.enums.UserStatus;
+import com.example.realEstate.repository.OfferRepository;
 import com.example.realEstate.repository.OwnerRepository;
+import com.example.realEstate.repository.PropertyRepository;
 import com.example.realEstate.service.OwnerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class OwnerServiceImpl implements OwnerService {
     private final OwnerRepository ownerRepository;
+    private final OfferRepository offerRepository;
+    private final PropertyRepository propertyRepository;
+
     @Override
     public Owner save(Owner owner) {
         return ownerRepository.save(owner);
@@ -64,5 +75,45 @@ public class OwnerServiceImpl implements OwnerService {
             isOwner.get().setStatus(UserStatus.DEACTIVE);
             ownerRepository.save(isOwner.get());
         }
+    }
+
+    @Override
+    public void acceptNextOfferStep(long ownerId, long offerId) {
+        Offer offer = offerRepository.findByIdAndAndOwnerId(offerId, ownerId);
+        Property property = offer.getProperty();
+        switch (property.getPropertyStatus()) {
+            case AVAILABLE:
+                property.setPropertyStatus(PropertyStatus.PENDING);
+                offer.setStatus(OfferStatus.ACCEPTED);
+                break;
+            case PENDING:
+                property.setPropertyStatus(PropertyStatus.CONTINGENT);
+                offer.setStatus(OfferStatus.ACCEPTED);
+                break;
+            case CONTINGENT:
+                if(property.getListingType() == ListingType.RENT) {
+                    property.setPropertyStatus(PropertyStatus.RENTED);
+                    offer.setStatus(OfferStatus.ACCEPTED);
+                } else {
+                    property.setPropertyStatus(PropertyStatus.SOLD);
+                    offer.setStatus(OfferStatus.ACCEPTED);
+                }
+                break;
+            default:
+                property.setPropertyStatus(PropertyStatus.PENDING);
+                offer.setStatus(OfferStatus.ACCEPTED);
+        }
+        offerRepository.save(offer);
+        propertyRepository.save(property);
+    }
+
+    @Override
+    public void declineOffer(long ownerId, long offerId) {
+        Offer offer = offerRepository.findByIdAndAndOwnerId(offerId, ownerId);
+        Property property = offer.getProperty();
+        offer.setStatus(OfferStatus.DECLINED);
+        offerRepository.save(offer);
+        property.setPropertyStatus(PropertyStatus.AVAILABLE);
+        propertyRepository.save(property);
     }
 }

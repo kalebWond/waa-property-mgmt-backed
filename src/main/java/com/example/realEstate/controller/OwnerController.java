@@ -18,6 +18,7 @@ import java.util.List;
 public class OwnerController {
 
     private final PropertyService propertyService;
+    private final OwnerService ownerService;
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("{id}/properties")
@@ -58,6 +59,16 @@ public class OwnerController {
             @RequestParam(value = "state", required = false) String state,
             @RequestParam(value = "submittedAt",required = false) LocalDateTime submittedAt){
         return propertyService.searchPropertyCriteria(id, pptId, city, state, price, submittedAt);
+    }
+
+    @PutMapping("{id}/offers/{offerId}/accept")
+    public void acceptOffer(@PathVariable long id, @PathVariable("offerId") long offerId) {
+        ownerService.acceptNextOfferStep(id, offerId);
+    }
+
+    @PutMapping("{id}/offers/{offerId}/decline")
+    public void declineOffer(@PathVariable long id, @PathVariable("offerId") long offerId) {
+        ownerService.declineOffer(id, offerId);
     }
 
 }

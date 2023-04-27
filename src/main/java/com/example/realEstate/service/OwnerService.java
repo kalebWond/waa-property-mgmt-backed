@@ -14,9 +14,9 @@ public interface OwnerService {
     public Owner updateOwnerById(long id,Owner owner);
     public void deleteById(long id);
     public List<Owner> findAll();
-
     public void activateOwner(Long id);
-
     public void deactivateOwner(Long id);
+    public void acceptNextOfferStep(long id, long offerId);
+    public void declineOffer(long id, long offerId);
 
 }
