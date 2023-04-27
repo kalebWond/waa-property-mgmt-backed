@@ -26,14 +26,14 @@ public class AuthController {
         return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
     }
 
-    @PostMapping("/signUp")
+    @PostMapping("/signup")
     public ResponseEntity<?> signUp(@RequestBody SignupRequest signupRequest){
         User user = authService.signup(signupRequest);
         return new ResponseEntity<User>(user, HttpStatus.OK);
 
     }
 
-    @PostMapping("/refreshToken")
+    @PostMapping("/refresh-token")
     public LoginResponse refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest) {
         return authService.refreshToken(refreshTokenRequest);
     }

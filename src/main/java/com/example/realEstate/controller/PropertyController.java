@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/properties")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PropertyController {
 
     private final PropertyService propertyService;

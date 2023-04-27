@@ -6,8 +6,8 @@ INSERT INTO role (id, role) VALUES
 
 -- Insert Customer entries
 INSERT INTO customer (id, first_name, last_name, email, password, role_id, status) VALUES
-                                                                                       (1, 'John', 'Doe', 'johndoe@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 2, 'ACTIVE'),
-                                                                                       (2, 'Jane', 'Doe', 'janedoe@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 2, 'ACTIVE'),
+                                                                                       (100, 'John', 'Doe', 'johndoe@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 2, 'ACTIVE'),
+                                                                                       (203, 'Jane', 'Doe', 'janedoe@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 2, 'ACTIVE'),
                                                                                        (3, 'Bob', 'Smith', 'bobsmith@gmail.com', 'password3', 2, 'ACTIVE'),
                                                                                        (4, 'Alice', 'Johnson', 'alicejohnson@gmail.com', 'password4', 2, 'ACTIVE'),
                                                                                        (5, 'Mike', 'Williams', 'mikewilliams@gmail.com', 'password5', 2, 'ACTIVE'),
@@ -133,6 +133,16 @@ VALUES (26, 26),
        (39, 39),
        (40, 40);
 
+
+
+INSERT INTO offer (id, price, status, submitted_at, customer_id, property_id)
+VALUES (1, 300000, 'WAITING', '2023-04-27T10:09:30', 100, 26),
+       (2, 250000, 'WAITING', '2023-04-27T10:09:30', 100, 28),
+       (3, 300000, 'WAITING', '2023-04-27T10:09:30', 100, 30),
+       (4, 200000, 'WAITING', '2023-04-27T10:09:30', 100, 31),
+       (5, 400000, 'WAITING', '2023-04-27T10:09:30', 100, 32),
+       (6, 320000, 'WAITING', '2023-04-27T10:09:30', 203, 26),
+       (7, 350000, 'WAITING', '2023-04-27T10:09:30', 203, 28);
 
 INSERT INTO photos (id, link, property_id)
 VALUES (10, 'https://picsum.photos/200/300', 26),
