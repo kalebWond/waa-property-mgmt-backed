@@ -1,5 +1,6 @@
 package com.example.realEstate.entity;
 
+import com.example.realEstate.entity.enums.UserStatus;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -17,4 +18,7 @@ public class Owner extends User {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Property> properties;
 
+    public Owner(String firstName, String lastName, String email, String password, UserStatus status) {
+        super(firstName, lastName, email, password, status);
+    }
 }

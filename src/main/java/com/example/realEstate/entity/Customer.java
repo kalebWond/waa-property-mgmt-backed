@@ -1,5 +1,6 @@
 package com.example.realEstate.entity;
 
+import com.example.realEstate.entity.enums.UserStatus;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinTable;
@@ -24,4 +25,8 @@ public class Customer extends User {
     @JsonManagedReference
     private List<Offer> offers;
 
+    public Customer(String firstName, String lastName, String email, String password,  UserStatus status) {
+        super(firstName, lastName, email, password, status);
+
+    }
 }

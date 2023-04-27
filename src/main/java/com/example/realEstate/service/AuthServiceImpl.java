@@ -1,15 +1,13 @@
 package com.example.realEstate.service;
 
-import com.example.realEstate.entity.Admin;
-import com.example.realEstate.entity.Customer;
-import com.example.realEstate.entity.Role;
-import com.example.realEstate.entity.User;
+import com.example.realEstate.entity.*;
 import com.example.realEstate.entity.dto.request.LoginRequest;
 import com.example.realEstate.entity.dto.request.RefreshTokenRequest;
 import com.example.realEstate.entity.dto.request.SignupRequest;
 import com.example.realEstate.entity.dto.response.LoginResponse;
 import com.example.realEstate.entity.enums.RoleType;
 import com.example.realEstate.entity.enums.UserStatus;
+import com.example.realEstate.repository.RoleRepository;
 import com.example.realEstate.repository.UserRepository;
 import com.example.realEstate.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +30,7 @@ public class AuthServiceImpl implements AuthService {
     private final JwtUtil jwtUtil;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final RoleRepository roleRepository;
 
     @Override
     public LoginResponse login(LoginRequest loginRequest) {
@@ -71,23 +70,31 @@ public class AuthServiceImpl implements AuthService {
         return new LoginResponse();
     }
 
-//    @Override
-//    public User signup(SignupRequest signupRequest) {
-//        String firstName=  signupRequest.getFirstName();
-//        String lastName = signupRequest.getLastName();
-//        String email = signupRequest.getEmail();
-//        String password = passwordEncoder.encode(signupRequest.getPassword());
-//        RoleType roleType = signupRequest.getRole();
-//        User user;
-//
-//
-//        Role role = new Role(roleType);
-//        if(roleType.name().equals("CUSTOMER")){
-//            System.out.println(roleType.name());
-//            user = new Customer(firstName, lastName, email, role, UserStatus.PENDING);
-//
-//        }
-//        User user =
-//        return userRepository.save();
-//    }
+    @Override
+    public User signup(SignupRequest signupRequest) {
+        String firstName=  signupRequest.getFirstName();
+        String lastName = signupRequest.getLastName();
+        String email = signupRequest.getEmail();
+        String password = passwordEncoder.encode(signupRequest.getPassword());
+        String roleTypeString = signupRequest.getRole();
+        RoleType roleTypeEnum= RoleType.valueOf(roleTypeString);
+        User user;
+
+
+        Role role = roleRepository.findByRole(roleTypeEnum);
+
+        if(roleTypeString.equals("OWNER")) {
+
+            user = new Owner(firstName, lastName, email, password, UserStatus.PENDING);
+            user.setRole(role);
+            return userRepository.save(user);
+        }else {
+            user = new Customer(firstName, lastName, email, password, UserStatus.PENDING);
+            user.setRole(role);
+            return userRepository.save(user);
+        }
+
+
+
+    }
 }

@@ -9,5 +9,5 @@ import com.example.realEstate.entity.dto.response.LoginResponse;
 public interface AuthService {
     LoginResponse login(LoginRequest loginRequest);
     LoginResponse refreshToken(RefreshTokenRequest refreshTokenRequest);
-//    User signup(SignupRequest signupRequest);
+   User signup(SignupRequest signupRequest);
 }

@@ -1,5 +1,6 @@
 package com.example.realEstate.controller;
 
+import com.example.realEstate.entity.User;
 import com.example.realEstate.entity.dto.request.LoginRequest;
 import com.example.realEstate.entity.dto.request.RefreshTokenRequest;
 import com.example.realEstate.entity.dto.request.SignupRequest;
@@ -25,10 +26,12 @@ public class AuthController {
         return new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
     }
 
-//    @PostMapping("/signUp")
-//    public ResponseEntity<?> signUp(@RequestBody SignupRequest signupRequest){
-//
-//    }
+    @PostMapping("/signUp")
+    public ResponseEntity<?> signUp(@RequestBody SignupRequest signupRequest){
+        User user = authService.signup(signupRequest);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+
+    }
 
     @PostMapping("/refreshToken")
     public LoginResponse refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest) {
