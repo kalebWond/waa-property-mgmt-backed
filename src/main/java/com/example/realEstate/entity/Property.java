@@ -56,6 +56,7 @@ public class Property {
     private List<Offer> offers;
 
     @ManyToMany(mappedBy = "properties")
+    @JsonManagedReference
     private List<Customer> customers;
 
     //added [createdAt]

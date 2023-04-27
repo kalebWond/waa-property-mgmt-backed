@@ -26,5 +26,13 @@ public abstract class User {
     private Role role;
     @Enumerated(EnumType.STRING)
     private UserStatus status;
+
+    public User(String firstName, String lastName, String email, String password,  UserStatus status) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.status = status;
+    }
     private LocalDateTime dateOfRegistration;
 }

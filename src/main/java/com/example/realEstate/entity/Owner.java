@@ -1,6 +1,9 @@
 package com.example.realEstate.entity;
 
-import jakarta.persistence.*;
+import com.example.realEstate.entity.enums.UserStatus;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,4 +18,8 @@ public class Owner extends User {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "owner_properties")
     private List<Property> properties;
+
+    public Owner(String firstName, String lastName, String email, String password, UserStatus status) {
+        super(firstName, lastName, email, password, status);
+    }
 }
