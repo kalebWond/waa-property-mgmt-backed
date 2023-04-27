@@ -59,5 +59,8 @@ public class Property {
     @JsonManagedReference
     private List<Customer> customers;
 
+    //added [createdAt]
+    private LocalDate startedDate;
 
+    private long ownerId;
 }

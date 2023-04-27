@@ -4,6 +4,7 @@ import com.example.realEstate.entity.Customer;
 import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Property;
 import com.example.realEstate.entity.enums.OfferStatus;
+import com.example.realEstate.entity.enums.UserStatus;
 import com.example.realEstate.repository.CustomerRepository;
 import com.example.realEstate.repository.OfferRepository;
 import com.example.realEstate.repository.PropertyRepository;
@@ -87,5 +88,29 @@ public class CustomerServiceImpl implements CustomerService {
         offerRepository.save(offer);
     }
 
+
+    public List<Customer> findAllCustomers(){
+//        var listCustomers =  customerRepository.findAll().stream().filter(e->e.);
+        return customerRepository.sortByDateOfRegistrationDsc();
+    }
+
+    @Override
+    public void activateCustomer(Long id) {
+        var isCustomer= customerRepository.findById(id);
+        if(isCustomer.isPresent()){
+            isCustomer.get().setStatus(UserStatus.ACTIVE);
+            customerRepository.save(isCustomer.get());
+
+        }
+    }
+
+    @Override
+    public void deactivateCustomer(long id){
+        var isCustomer= customerRepository.findById(id);
+        if(isCustomer.isPresent()){
+            isCustomer.get().setStatus(UserStatus.DEACTIVE);
+            customerRepository.save(isCustomer.get());
+        }
+    }
 
 }

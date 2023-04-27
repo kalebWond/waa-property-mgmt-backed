@@ -5,66 +5,66 @@ INSERT INTO role (id, role) VALUES
                                 (3, 'ADMIN');
 
 -- Insert Customer entries
-INSERT INTO customer (id, first_name, last_name, email, password, role_id, status) VALUES
-                                                                                       (100, 'John', 'Doe', 'johndoe@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 2, 'ACTIVE'),
-                                                                                       (200, 'Jane', 'Doe', 'janedoe@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 2, 'ACTIVE'),
-                                                                                       (300, 'Bob', 'Smith', 'bobsmith@gmail.com', 'password3', 2, 'ACTIVE'),
-                                                                                       (400, 'Alice', 'Johnson', 'alicejohnson@gmail.com', 'password4', 2, 'ACTIVE'),
-                                                                                       (500, 'Mike', 'Williams', 'mikewilliams@gmail.com', 'password5', 2, 'ACTIVE'),
-                                                                                       (600, 'Emily', 'Davis', 'emilydavis@gmail.com', 'password6', 2, 'ACTIVE'),
-                                                                                       (700, 'David', 'Brown', 'davidbrown@gmail.com', 'password7', 2, 'ACTIVE'),
-                                                                                       (800, 'Sarah', 'Miller', 'sarahmiller@gmail.com', 'password8', 2, 'ACTIVE'),
-                                                                                       (900, 'Mark', 'Wilson', 'markwilson@gmail.com', 'password9', 2, 'ACTIVE'),
-                                                                                       (1000   , 'Karen', 'Moore', 'karenmoore@gmail.com', 'password10', 2, 'ACTIVE'),
-                                                                                       (1100   , 'Tom', 'Taylor', 'tomtaylor@gmail.com', 'password11', 2, 'ACTIVE'),
-                                                                                       (1200   , 'Olivia', 'Anderson', 'oliviaanderson@gmail.com', 'password12', 2, 'ACTIVE'),
-                                                                                       (1300   , 'Chris', 'Thomas', 'christhomas@gmail.com', 'password13', 2, 'ACTIVE'),
-                                                                                       (1400   , 'Samantha', 'Jackson', 'samanthajackson@gmail.com', 'password14', 2, 'ACTIVE'),
-                                                                                       (1500   , 'George', 'White', 'georgewhite@gmail.com', 'password15', 2, 'ACTIVE'),
-                                                                                       (1600   , 'Ella', 'Harris', 'ellaharris@gmail.com', 'password16', 2, 'ACTIVE'),
-                                                                                       (1700   , 'Anthony', 'Martin', 'anthonymartin@gmail.com', 'password17', 2, 'ACTIVE'),
-                                                                                       (1800   , 'Madison', 'Thompson', 'madisonthompson@gmail.com', 'password18', 2, 'ACTIVE'),
-                                                                                       (1900   , 'Ryan', 'Garcia', 'ryangarcia@gmail.com', 'password19', 2, 'ACTIVE'),
-                                                                                       (2000   , 'Julia', 'Davis', 'juliadavis@gmail.com', 'password20', 2, 'ACTIVE'),
-                                                                                       (2100   , 'Justin', 'Rodriguez', 'justinrodriguez@gmail.com', 'password21', 2, 'ACTIVE'),
-                                                                                       (2200   , 'Lauren', 'Perez', 'laurenperez@gmail.com', 'password22', 2, 'ACTIVE'),
-                                                                                       (2300   , 'Joshua', 'Turner', 'joshuaturner@gmail.com', 'password23', 2, 'ACTIVE'),
-                                                                                       (2400   , 'Ashley', 'Campbell', 'ashleycampbell@gmail.com', 'password24', 2, 'ACTIVE'),
-                                                                                       (2500   , 'Brandon', 'Parker', 'brandonparker@gmail.com', 'password25', 2, 'ACTIVE');
+INSERT INTO customer (id, first_name, last_name, email, password, role_id, status, date_of_registration) VALUES
+                                                                                       (100, 'John', 'Doe', 'johndoe@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 2, 'ACTIVE', '2023-04-25 09:45:00'),
+                                                                                       (200, 'Jane', 'Doe', 'janedoe@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 2, 'ACTIVE', '2023-04-25 10:15:00'),
+                                                                                       (300, 'Bob', 'Smith', 'bobsmith@gmail.com', 'password3', 2, 'ACTIVE', '2023-04-25 10:30:30'),
+                                                                                       (400, 'Alice', 'Johnson', 'alicejohnson@gmail.com', 'password4', 2, 'ACTIVE', '2023-04-25 11:00:00'),
+                                                                                       (500, 'Mike', 'Williams', 'mikewilliams@gmail.com', 'password5', 2, 'ACTIVE', '2023-04-25 11:30:00'),
+                                                                                       (600, 'Emily', 'Davis', 'emilydavis@gmail.com', 'password6', 2, 'ACTIVE', '2023-04-25 12:00:00'),
+                                                                                       (700, 'David', 'Brown', 'davidbrown@gmail.com', 'password7', 2, 'ACTIVE', '2023-04-25 12:30:00'),
+                                                                                       (800, 'Sarah', 'Miller', 'sarahmiller@gmail.com', 'password8', 2, 'ACTIVE', '2023-04-25 13:00:00'),
+                                                                                       (900, 'Mark', 'Wilson', 'markwilson@gmail.com', 'password9', 2, 'ACTIVE', '2023-04-25 13:30:00'),
+                                                                                       (1000   , 'Karen', 'Moore', 'karenmoore@gmail.com', 'password10', 2, 'ACTIVE', '2023-04-25 14:00:00'),
+                                                                                       (1100   , 'Tom', 'Taylor', 'tomtaylor@gmail.com', 'password11', 2, 'ACTIVE', '2023-04-25 14:30:00'),
+                                                                                       (1200   , 'Olivia', 'Anderson', 'oliviaanderson@gmail.com', 'password12', 2, 'ACTIVE', '2023-04-25 15:00:00'),
+                                                                                       (1300   , 'Chris', 'Thomas', 'christhomas@gmail.com', 'password13', 2, 'ACTIVE', '2023-04-25 15:30:00'),
+                                                                                       (1400   , 'Samantha', 'Jackson', 'samanthajackson@gmail.com', 'password14', 2, 'ACTIVE', '2023-04-25 16:00:00'),
+                                                                                       (1500   , 'George', 'White', 'georgewhite@gmail.com', 'password15', 2, 'ACTIVE', '2023-04-25 16:30:00'),
+                                                                                       (1600   , 'Ella', 'Harris', 'ellaharris@gmail.com', 'password16', 2, 'ACTIVE', '2023-04-25 17:00:00'),
+                                                                                       (1700   , 'Anthony', 'Martin', 'anthonymartin@gmail.com', 'password17', 2, 'ACTIVE', '2023-04-25 17:30:00'),
+                                                                                       (1800   , 'Madison', 'Thompson', 'madisonthompson@gmail.com', 'password18', 2, 'ACTIVE', '2023-04-25 18:00:00'),
+                                                                                       (1900   , 'Ryan', 'Garcia', 'ryangarcia@gmail.com', 'password19', 2, 'ACTIVE', '2023-04-25 18:30:00'),
+                                                                                       (2000   , 'Julia', 'Davis', 'juliadavis@gmail.com', 'password20', 2, 'ACTIVE', '2023-04-25 19:00:00'),
+                                                                                       (2100   , 'Justin', 'Rodriguez', 'justinrodriguez@gmail.com', 'password21', 2, 'ACTIVE', '2023-04-25 19:30:00'),
+                                                                                       (2200   , 'Lauren', 'Perez', 'laurenperez@gmail.com', 'password22', 2, 'ACTIVE', '2023-04-25 20:00:00'),
+                                                                                       (2300   , 'Joshua', 'Turner', 'joshuaturner@gmail.com', 'password23', 2, 'ACTIVE', '2023-04-25 20:30:00'),
+                                                                                       (2400   , 'Ashley', 'Campbell', 'ashleycampbell@gmail.com', 'password24', 2, 'ACTIVE', '2023-04-25 21:00:00'),
+                                                                                       (2500   , 'Brandon', 'Parker', 'brandonparker@gmail.com', 'password25', 2, 'ACTIVE', '2023-04-25 21:30:00');
 
 -- Insert Owner entries
-INSERT INTO owner (id, first_name, last_name, email, password, role_id, status) VALUES
-                                                                                    (2600, 'Michael', 'Brown', 'brown@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 1, 'ACTIVE'),
-                                                                                    (2700, 'Jennifer', 'Johnson', 'jenniferjohnson@gmail.com', 'password27', 1, 'ACTIVE'),
-                                                                                    (2800, 'William', 'Lee', 'williamlee@gmail.com', 'password28', 1, 'ACTIVE'),
-                                                                                    (2900, 'Sophia', 'Harris', 'sophiaharris@gmail.com', 'password29', 1, 'ACTIVE'),
-                                                                                    (3000, 'Daniel', 'Jackson', 'danieljackson@gmail.com', 'password30', 1, 'ACTIVE'),
-                                                                                    (3100, 'Grace', 'Moore', 'gracemoore@gmail.com', 'password31', 1, 'ACTIVE'),
-                                                                                    (3200, 'Joseph', 'Clark', 'josephclark@gmail.com', 'password32', 1, 'ACTIVE'),
-                                                                                    (3300, 'Olivia', 'Hall', 'oliviahall@gmail.com', 'password33', 1, 'ACTIVE'),
-                                                                                    (3400, 'James', 'Gonzalez', 'jamesgonzalez@gmail.com', 'password34', 1, 'ACTIVE'),
-                                                                                    (3500, 'Emma', 'Garcia', 'emmagarcia@gmail.com', 'password35', 1, 'ACTIVE'),
-                                                                                    (3600, 'Benjamin', 'Rodriguez', 'benjaminrodriguez@gmail.com', 'password36', 1, 'ACTIVE'),
-                                                                                    (3700, 'Ava', 'Wilson', 'avawilson@gmail.com', 'password37', 1, 'ACTIVE'),
-                                                                                    (3800, 'David', 'Smith', 'davidsmith@gmail.com', 'password38', 1, 'ACTIVE'),
-                                                                                    (3900, 'Mia', 'Taylor', 'miataylor@gmail.com', 'password39', 1, 'ACTIVE'),
-                                                                                    (4000, 'Christopher', 'Anderson', 'christopheranderson@gmail.com', 'password40', 1, 'ACTIVE'),
-                                                                                    (4100, 'Harper', 'Johnson', 'harperjohnson@gmail.com', 'password41', 1, 'ACTIVE'),
-                                                                                    (4200, 'Andrew', 'Martinez', 'andrewmartinez@gmail.com', 'password42', 1, 'ACTIVE'),
-                                                                                    (4300, 'Evelyn', 'Clark', 'evelynclark@gmail.com', 'password43', 1, 'ACTIVE'),
-                                                                                    (4400, 'Matthew', 'White', 'matthewwhite@gmail.com', 'password44', 1, 'ACTIVE'),
-                                                                                    (4500, 'Addison', 'Hernandez', 'addisonhernandez@gmail.com', 'password45', 1, 'ACTIVE'),
-                                                                                    (4600, 'Amelia', 'Lee', 'ameliale@gmail.com', 'password46', 1, 'ACTIVE'),
-                                                                                    (4700, 'Lucas', 'Thomas', 'lucasthomas@gmail.com', 'password47', 1, 'ACTIVE'),
-                                                                                    (4800, 'Chloe', 'Robinson', 'chloerobinson@gmail.com', 'password48', 1, 'ACTIVE'),
-                                                                                    (4900, 'Henry', 'Harris', 'henryharris@gmail.com', 'password49', 1, 'ACTIVE'),
-                                                                                    (5000, 'Elizabeth', 'Turner', 'elizabethturner@gmail.com', 'password50', 1, 'ACTIVE');
+INSERT INTO owner (id, first_name, last_name, email, password, role_id, status, date_of_registration) VALUES
+                                                                                    (2600, 'Michael', 'Brown', 'brown@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 1, 'ACTIVE', '2023-04-26 10:00:00'),
+                                                                                    (2700, 'Jennifer', 'Johnson', 'jenniferjohnson@gmail.com', 'password27', 1, 'ACTIVE', '2023-04-26 10:30:00'),
+                                                                                    (2800, 'William', 'Lee', 'williamlee@gmail.com', 'password28', 1, 'ACTIVE', '2023-04-26 11:00:00'),
+                                                                                    (2900, 'Sophia', 'Harris', 'sophiaharris@gmail.com', 'password29', 1, 'ACTIVE', '2023-04-26 11:30:00'),
+                                                                                    (3000, 'Daniel', 'Jackson', 'danieljackson@gmail.com', 'password30', 1, 'ACTIVE', '2023-04-26 12:00:00'),
+                                                                                    (3100, 'Grace', 'Moore', 'gracemoore@gmail.com', 'password31', 1, 'ACTIVE', '2023-04-26 12:30:00'),
+                                                                                    (3200, 'Joseph', 'Clark', 'josephclark@gmail.com', 'password32', 1, 'ACTIVE', '2023-04-26 13:00:00'),
+                                                                                    (3300, 'Olivia', 'Hall', 'oliviahall@gmail.com', 'password33', 1, 'ACTIVE', '2023-04-26 13:30:00'),
+                                                                                    (3400, 'James', 'Gonzalez', 'jamesgonzalez@gmail.com', 'password34', 1, 'ACTIVE', '2023-04-26 14:00:00'),
+                                                                                    (3500, 'Emma', 'Garcia', 'emmagarcia@gmail.com', 'password35', 1, 'ACTIVE', '2023-04-26 14:30:00'),
+                                                                                    (3600, 'Benjamin', 'Rodriguez', 'benjaminrodriguez@gmail.com', 'password36', 1, 'ACTIVE', '2023-04-26 15:00:00'),
+                                                                                    (3700, 'Ava', 'Wilson', 'avawilson@gmail.com', 'password37', 1, 'ACTIVE', '2023-04-26 15:30:00'),
+                                                                                    (3800, 'David', 'Smith', 'davidsmith@gmail.com', 'password38', 1, 'ACTIVE', '2023-04-26 16:00:00'),
+                                                                                    (3900, 'Mia', 'Taylor', 'miataylor@gmail.com', 'password39', 1, 'ACTIVE', '2023-04-26 16:30:00'),
+                                                                                    (4000, 'Christopher', 'Anderson', 'christopheranderson@gmail.com', 'password40', 1, 'ACTIVE', '2023-04-26 17:00:00'),
+                                                                                    (4100, 'Harper', 'Johnson', 'harperjohnson@gmail.com', 'password41', 1, 'ACTIVE', '2023-04-26 17:30:00'),
+                                                                                    (4200, 'Andrew', 'Martinez', 'andrewmartinez@gmail.com', 'password42', 1, 'ACTIVE', '2022-03-01 09:30:00'),
+                                                                                    (4300, 'Evelyn', 'Clark', 'evelynclark@gmail.com', 'password43', 1, 'ACTIVE', '2022-03-02 14:45:00'),
+                                                                                    (4400, 'Matthew', 'White', 'matthewwhite@gmail.com', 'password44', 1, 'ACTIVE', '2022-03-03 17:15:00'),
+                                                                                    (4500, 'Addison', 'Hernandez', 'addisonhernandez@gmail.com', 'password45', 1, 'ACTIVE', '2022-03-04 10:20:00'),
+                                                                                    (4600, 'Amelia', 'Lee', 'ameliale@gmail.com', 'password46', 1, 'ACTIVE', '2022-03-05 12:30:00'),
+                                                                                    (4700, 'Lucas', 'Thomas', 'lucasthomas@gmail.com', 'password47', 1, 'ACTIVE', '2022-03-06 15:45:00'),
+                                                                                    (4800, 'Chloe', 'Robinson', 'chloerobinson@gmail.com', 'password48', 1, 'ACTIVE', '2022-03-07 11:00:00'),
+                                                                                    (4900, 'Henry', 'Harris', 'henryharris@gmail.com', 'password49', 1, 'ACTIVE', '2022-03-08 09:15:00'),
+                                                                                    (5000, 'Elizabeth', 'Turner', 'elizabethturner@gmail.com', 'password50', 1, 'ACTIVE', '2022-03-09 13:30:00');
 
 
 --Insert dummy data for Admin
-INSERT INTO admin (id, first_name, last_name, email, password, role_id, status) VALUES
-                                                                                       (100, 'Jack', 'Blue', 'jackblue@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 3, 'ACTIVE'),
-                                                                                       (200, 'Kate', 'Brown', 'katebrown@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 3, 'ACTIVE');
+INSERT INTO admin (id, first_name, last_name, email, password, role_id, status, date_of_registration) VALUES
+                                                                                       (105, 'Jack', 'Blue', 'jackblue@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 3, 'ACTIVE', '2022-03-08 09:15:00'),
+                                                                                       (110, 'Kate', 'Brown', 'katebrown@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 3, 'ACTIVE', '2022-03-09 13:30:00');
 -- Insert dummy data for Address
 INSERT INTO Address (id, street, city, state, zipcode)
 VALUES (1000, '1234 Elm St', 'San Francisco', 'CA', '94107'),
@@ -103,22 +103,22 @@ VALUES (600, true, 'Central AC', 'Gas', 2000.00),
        (2000, true, 'Central AC', 'Gas', 2700.00);
 
 -- Insert dummy data for Property
-INSERT INTO property (id, property_type, price, bedrooms, bathrooms, property_status, lot_size, built_year, address_id, listing_type, property_details_id)
-VALUES (2600, 'HOUSE', 150000, 3, 2, 'AVAILABLE', 1200, '2008-01-01', 1000, 'SALE', 600),
-       (2700, 'APARTMENT', 1000, 1, 1, 'RENTED', 600, '2015-01-01', 2000, 'RENT', 700),
-       (2800, 'CONDO', 180000, 2, 2, 'SOLD', 900, '2010-01-01', 3000, 'SALE', 800),
-       (2900, 'TOWNHOUSE', 130000, 2, 2, 'AVAILABLE', 1000, '2012-01-01', 4000, 'RENT', 900),
-       (3000, 'HOUSE', 300000, 4, 3, 'SOLD', 1800, '2005-01-01', 5000, 'SALE', 1000),
-       (3100, 'APARTMENT', 1100, 1, 1, 'RENTED', 700, '2018-01-01', 6000, 'RENT', 1100),
-       (3200, 'CONDO', 250000, 2, 2, 'PENDING', 1000, '2016-01-01', 7000, 'SALE', 1200),
-       (3300, 'TOWNHOUSE', 140000, 2, 2, 'AVAILABLE', 900, '2010-01-01', 8000, 'RENT', 1300),
-       (3400, 'HOUSE', 180000, 3, 2, 'SOLD', 1200, '2015-01-01', 9000, 'SALE', 1400),
-       (3500, 'APARTMENT', 900, 1, 1, 'RENTED', 600, '2012-01-01', 10000, 'RENT', 1500),
-       (3600, 'CONDO', 200000, 2, 2, 'CONTINGENT', 1000, '2008-01-01', 11000, 'SALE', 1600),
-       (3700, 'TOWNHOUSE', 120000, 2, 2, 'AVAILABLE', 800, '2005-01-01', 12000, 'RENT', 1700),
-       (3800, 'HOUSE', 280000, 4, 3, 'SOLD', 1600, '2010-01-01', 13000, 'SALE', 1800),
-       (3900, 'APARTMENT', 950, 1, 1, 'RENTED', 650, '2015-01-01', 14000, 'RENT', 1900),
-       (4000, 'CONDO', 220000, 2, 2, 'PENDING', 1100, '2012-01-01', 15000, 'SALE', 2000);
+INSERT INTO property (id, property_type, price, bedrooms, bathrooms, property_status, lot_size, built_year, address_id, listing_type, property_details_id, owner_id)
+VALUES (2600, 'HOUSE', 150000, 3, 2, 'AVAILABLE', 1200, '2008-01-01', 1000, 'SALE', 600, 26),
+       (2700, 'APARTMENT', 1000, 1, 1, 'RENTED', 600, '2015-01-01', 2000, 'RENT', 700, 27),
+       (2800, 'CONDO', 180000, 2, 2, 'SOLD', 900, '2010-01-01', 3000, 'SALE', 800, 28),
+       (2900, 'TOWNHOUSE', 130000, 2, 2, 'AVAILABLE', 1000, '2012-01-01', 4000, 'RENT', 900, 29),
+       (3000, 'HOUSE', 300000, 4, 3, 'SOLD', 1800, '2005-01-01', 5000, 'SALE', 1000, 30),
+       (3100, 'APARTMENT', 1100, 1, 1, 'RENTED', 700, '2018-01-01', 6000, 'RENT', 1100, 31),
+       (3200, 'CONDO', 250000, 2, 2, 'PENDING', 1000, '2016-01-01', 7000, 'SALE', 1200, 32),
+       (3300, 'TOWNHOUSE', 140000, 2, 2, 'AVAILABLE', 900, '2010-01-01', 8000, 'RENT', 1300, 33),
+       (3400, 'HOUSE', 180000, 3, 2, 'SOLD', 1200, '2015-01-01', 9000, 'SALE', 1400, 34),
+       (3500, 'APARTMENT', 900, 1, 1, 'RENTED', 600, '2012-01-01', 10000, 'RENT', 1500, 35),
+       (3600, 'CONDO', 200000, 2, 2, 'CONTINGENT', 1000, '2008-01-01', 11000, 'SALE', 1600, 36),
+       (3700, 'TOWNHOUSE', 120000, 2, 2, 'AVAILABLE', 800, '2005-01-01', 12000, 'RENT', 1700, 37),
+       (3800, 'HOUSE', 280000, 4, 3, 'SOLD', 1600, '2010-01-01', 13000, 'SALE', 1800, 38),
+       (3900, 'APARTMENT', 950, 1, 1, 'RENTED', 650, '2015-01-01', 14000, 'RENT', 1900, 39),
+       (4000, 'CONDO', 220000, 2, 2, 'PENDING', 1100, '2012-01-01', 15000, 'SALE', 2000, 40);
 
 -- Insert dummy data for owner_properties
 INSERT INTO owner_properties (owner_id, properties_id)
@@ -165,5 +165,4 @@ VALUES (1000, 'https://picsum.photos/200/300', 2600),
        (13000, 'https://picsum.photos/200/300', 3800),
        (14000, 'https://picsum.photos/200/300', 3900),
        (15000, 'https://picsum.photos/200/300', 4000);
-
 

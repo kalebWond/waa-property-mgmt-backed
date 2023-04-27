@@ -16,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Owner extends User {
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "owner_properties")
     private List<Property> properties;
 
     public Owner(String firstName, String lastName, String email, String password, UserStatus status) {

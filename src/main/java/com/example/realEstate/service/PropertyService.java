@@ -29,5 +29,6 @@ public interface PropertyService {
                                                    ListingType listingType, Integer minBedRooms,
                                                    Integer maxBedRooms, Double minBathRooms, Double maxBathrooms, PropertyType propertyType,
                                                    String city, String state);
+    public List<Property> findPropertyStatus();
 
 }
