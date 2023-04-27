@@ -26,6 +26,7 @@ public abstract class User {
     private Role role;
     @Enumerated(EnumType.STRING)
     private UserStatus status;
+    private LocalDateTime dateOfRegistration;
 
     public User(String firstName, String lastName, String email, String password,  UserStatus status) {
         this.firstName = firstName;
@@ -33,6 +34,6 @@ public abstract class User {
         this.email = email;
         this.password = password;
         this.status = status;
+        this.dateOfRegistration = LocalDateTime.now();
     }
-    private LocalDateTime dateOfRegistration;
 }

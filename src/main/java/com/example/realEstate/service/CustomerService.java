@@ -3,6 +3,7 @@ package com.example.realEstate.service;
 import com.example.realEstate.entity.Customer;
 import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Property;
+import com.example.realEstate.entity.httpdata.OfferRequest;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface CustomerService {
 
     void removeFromFavorites(long customer_id, long property_id);
 
-    void makeOffer(Offer offer);
+    void makeOffer(OfferRequest offer, long customer_id);
 
     List<Offer> getOffers(long customer_id);
 

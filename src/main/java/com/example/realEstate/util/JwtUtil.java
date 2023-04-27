@@ -18,8 +18,8 @@ public class JwtUtil {
     @Autowired
     UserDetailsService userDetailsService;
     private final String secret = "top-secret";
-    private final long expiration = 5 * 60 * 60 * 60;
-    private final long refreshExpiration = 5 * 60 * 60 * 60 * 60;
+    private final long expiration = 20 * 60 * 60 * 60;
+    private final long refreshExpiration = 50 * 60 * 60 * 60 * 60;
 
     public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = getAllClaimsFromToken(token);

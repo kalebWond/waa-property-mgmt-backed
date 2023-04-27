@@ -3,11 +3,13 @@ package com.example.realEstate.controller;
 import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Property;
 import com.example.realEstate.entity.httpdata.FavoriteRequest;
+import com.example.realEstate.entity.httpdata.OfferRequest;
 import com.example.realEstate.entity.httpdata.UpdateOfferPrice;
 import com.example.realEstate.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -44,11 +46,12 @@ public class CustomerController {
 
     @PostMapping("/{id}/offers")
     @ResponseStatus(HttpStatus.CREATED)
-    public void sendOffer(@PathVariable long id, @RequestBody Offer offer) {
-        if(id != offer.getCustomer().getId()) {
+    public void sendOffer(@PathVariable long id, @RequestBody OfferRequest offerRequest) {
+        if(id != offerRequest.getCustomerId()) {
             throw new RuntimeException("Wrong ID match");
         }
-        customerService.makeOffer(offer);
+
+        customerService.makeOffer(offerRequest, id);
     }
 
     @GetMapping("/{id}/offers")

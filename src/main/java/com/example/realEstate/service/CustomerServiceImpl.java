@@ -5,6 +5,7 @@ import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Property;
 import com.example.realEstate.entity.enums.OfferStatus;
 import com.example.realEstate.entity.enums.UserStatus;
+import com.example.realEstate.entity.httpdata.OfferRequest;
 import com.example.realEstate.repository.CustomerRepository;
 import com.example.realEstate.repository.OfferRepository;
 import com.example.realEstate.repository.PropertyRepository;
@@ -51,10 +52,20 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void makeOffer(Offer offer) {
+    public void makeOffer(OfferRequest offerRequest, long customer_id) {
+        Customer customer = customerRepository.findById(customer_id).orElseThrow(() -> new RuntimeException("Customer not found"));
+        Property property = propertyRepository.findById(offerRequest.getPropertyId()).orElseThrow(() -> new RuntimeException("Property not found"));
+
+        Offer offer = new Offer();
+        offer.setCustomer(customer);
+        offer.setPrice(offerRequest.getPrice());
+        offer.setOwnerId(property.getOwnerId());
+        offer.setProperty(property);
         offer.setStatus(OfferStatus.WAITING);
         offer.setSubmittedAt(LocalDateTime.now());
-        offerRepository.save(offer);
+        customer.getOffers().add(offer);
+
+        customerRepository.save(customer);
     }
 
     @Override

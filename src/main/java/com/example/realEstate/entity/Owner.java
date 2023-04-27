@@ -3,6 +3,7 @@ package com.example.realEstate.entity;
 import com.example.realEstate.entity.enums.UserStatus;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;

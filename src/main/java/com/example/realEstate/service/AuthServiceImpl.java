@@ -84,16 +84,12 @@ public class AuthServiceImpl implements AuthService {
         Role role = roleRepository.findByRole(roleTypeEnum);
 
        if(roleTypeString.equals("OWNER")) {
-
             user = new Owner(firstName, lastName, email, password, UserStatus.PENDING);
-            user.setRole(role);
-            return userRepository.save(user);
-        }else {
+       }else {
             user = new Customer(firstName, lastName, email, password, UserStatus.PENDING);
-            user.setRole(role);
-            return userRepository.save(user);
-        }
-
+       }
+        user.setRole(role);
+        return userRepository.save(user);
 
 
     }
