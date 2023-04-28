@@ -18,5 +18,7 @@ spring:
   sql:
     init:
       mode: always
+  sendgrid:
+    api-key: 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
 server:
   port: 8080

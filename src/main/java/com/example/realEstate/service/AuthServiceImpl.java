@@ -21,6 +21,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -31,6 +33,7 @@ public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
+    private final EmailService emailService;
 
     @Override
     public LoginResponse login(LoginRequest loginRequest) {
@@ -71,7 +74,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public User signup(SignupRequest signupRequest) {
+    public User signup(SignupRequest signupRequest) throws IOException {
         String firstName=  signupRequest.getFirstName();
         String lastName = signupRequest.getLastName();
         String email = signupRequest.getEmail();
@@ -89,8 +92,7 @@ public class AuthServiceImpl implements AuthService {
             user = new Customer(firstName, lastName, email, password, UserStatus.PENDING);
        }
         user.setRole(role);
+       emailService.sendWelcomeEmail(email);
         return userRepository.save(user);
-
-
     }
 }

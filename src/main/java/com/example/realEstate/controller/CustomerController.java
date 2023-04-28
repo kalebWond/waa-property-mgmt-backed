@@ -9,6 +9,7 @@ import com.example.realEstate.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -51,7 +52,11 @@ public class CustomerController {
             throw new RuntimeException("Wrong ID match");
         }
 
-        customerService.makeOffer(offerRequest, id);
+        try {
+            customerService.makeOffer(offerRequest, id);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @GetMapping("/{id}/offers")

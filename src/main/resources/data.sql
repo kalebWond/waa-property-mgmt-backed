@@ -35,7 +35,7 @@ INSERT INTO customer (id, first_name, last_name, email, password, role_id, statu
 -- Insert Owner entries
 INSERT INTO owner (id, first_name, last_name, email, password, role_id, status, date_of_registration) VALUES
                                                                                                           (2600, 'Michael', 'Brown', 'brown@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 1, 'ACTIVE', '2023-04-26 10:00:00'),
-                                                                                                          (2700, 'Jennifer', 'Johnson', 'jenniferjohnson@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 1, 'ACTIVE', '2023-04-26 10:30:00'),
+                                                                                                          (2700, 'Jennifer', 'Johnson', 'piwopor259@syinxun.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 1, 'ACTIVE', '2023-04-26 10:30:00'),
                                                                                                           (2800, 'William', 'Lee', 'williamlee@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 1, 'ACTIVE', '2023-04-26 11:00:00'),
                                                                                                           (2900, 'Sophia', 'Harris', 'sophiaharris@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 1, 'ACTIVE', '2023-04-26 11:30:00'),
                                                                                                           (3000, 'Daniel', 'Jackson', 'danieljackson@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 1, 'ACTIVE', '2023-04-26 12:00:00'),
