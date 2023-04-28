@@ -7,6 +7,7 @@ import com.example.realEstate.entity.Property;
 import com.example.realEstate.entity.enums.OfferStatus;
 import com.example.realEstate.entity.enums.UserStatus;
 import com.example.realEstate.entity.httpdata.OfferRequest;
+import com.example.realEstate.integration.EmailService;
 import com.example.realEstate.repository.CustomerRepository;
 import com.example.realEstate.repository.OfferRepository;
 import com.example.realEstate.repository.OwnerRepository;
@@ -68,7 +69,7 @@ public class CustomerServiceImpl implements CustomerService {
         Owner owner = ownerRepository.findById(offer.getOwnerId()).get();
         if(owner != null) {
             emailService.sendEmail(owner.getEmail(), "Offer has been made to your property"
-                    , "Hello,\n\nA customer has made a $"+String.valueOf(offer.getPrice())+" to your property.\n\nThe Housing.com team");
+                    , "Hello "+owner.getFirstName()+",\n\nA customer has made a $"+String.valueOf(offer.getPrice())+" to your property.\n\nThe Housing.com team");
         }
         customerRepository.save(customer);
     }

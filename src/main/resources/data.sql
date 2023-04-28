@@ -63,7 +63,7 @@ INSERT INTO owner (id, first_name, last_name, email, password, role_id, status, 
 
 --Insert dummy data for Admin
 INSERT INTO admin (id, first_name, last_name, email, password, role_id, status, date_of_registration) VALUES
-                                                                                       (105, 'Jack', 'Blue', 'jackblue@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 3, 'ACTIVE', '2022-03-08 09:15:00'),
+                                                                                       (105, 'Jack', 'Blue', 'admin@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 3, 'ACTIVE', '2022-03-08 09:15:00'),
                                                                                        (110, 'Kate', 'Brown', 'katebrown@gmail.com', '$2a$12$IKEQb00u5QpZMx4v5zMweu.3wrq0pS7XLCHO4yHZ.BW/yvWu1feo2', 3, 'ACTIVE', '2022-03-09 13:30:00');
 -- Insert dummy data for Address
 INSERT INTO Address (id, street, city, state, zipcode)

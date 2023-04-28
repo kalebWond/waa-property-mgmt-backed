@@ -14,6 +14,6 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
 
 
     //    @Query(value = "select  p from Property p where p.propertyStatus='RENTED' order by p.startedDate desc ")
-    @Query(value = "select  p from Property p where p.propertyStatus=:status order by p.startedDate desc ")
+    @Query(value = "select  p from Property p where p.propertyStatus=:status order by p.createdAt desc ")
     public List<Property> findAllByPropertyStatus(@Param("status") PropertyStatus status);
 }

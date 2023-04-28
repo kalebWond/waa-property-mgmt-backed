@@ -2,10 +2,12 @@ package com.example.realEstate.service;
 
 import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Owner;
+import com.example.realEstate.entity.Photos;
 import com.example.realEstate.entity.Property;
 import com.example.realEstate.entity.enums.ListingType;
 import com.example.realEstate.entity.enums.PropertyStatus;
 import com.example.realEstate.entity.enums.PropertyType;
+import com.example.realEstate.entity.httpdata.PropertyRequest;
 import com.example.realEstate.repository.OwnerRepository;
 import com.example.realEstate.repository.PropertyRepository;
 import com.example.realEstate.repository.SearchOffersDao;
@@ -33,8 +35,21 @@ class PropertyServiceImpl implements PropertyService {
     private EntityManager entityManager;
 
     @Override
-    public void addProperty(long ownerId, Property property) {
+    public void addProperty(long ownerId, PropertyRequest propertyRequest) {
         Owner owner = ownerRepository.findById(ownerId).orElseThrow(() -> new RuntimeException("Owner not found"));
+
+        Property property = new Property();
+        property.setPropertyType(propertyRequest.getPropertyType());
+        property.setPrice(propertyRequest.getPrice());
+        property.setBedrooms(propertyRequest.getBedrooms());
+        property.setBathrooms(propertyRequest.getBathrooms());
+        property.setPropertyStatus(PropertyStatus.AVAILABLE);
+        property.setLotSize(propertyRequest.getLotSize());
+        property.setBuiltYear(propertyRequest.getBuiltYear());
+        property.setListingType(propertyRequest.getListingType());
+        property.setAddress(propertyRequest.getAddress());
+        property.setPropertyDetails(propertyRequest.getPropertyDetails());
+        property.setCreatedAt(LocalDateTime.now());
         property.setOwnerId(ownerId);
         owner.getProperties().add(property);
         ownerRepository.save(owner);
@@ -52,12 +67,20 @@ class PropertyServiceImpl implements PropertyService {
     }
 
     @Override
-    public Property updatePropertyById(long ownerId, long id, Property property) {
-        Property updatedProperty= propertyRepository.findById(id).get();
-        property.setId(updatedProperty.getId());
-        updatedProperty = property;
-        propertyRepository.save(updatedProperty);
-        return updatedProperty;
+    public Property updatePropertyById(long ownerId, long id, PropertyRequest propertyRequest) {
+        Property property= propertyRepository.findById(id).get();
+        property.setPropertyType(propertyRequest.getPropertyType());
+        property.setPrice(propertyRequest.getPrice());
+        property.setBedrooms(propertyRequest.getBedrooms());
+        property.setBathrooms(propertyRequest.getBathrooms());
+        property.setPropertyStatus(PropertyStatus.AVAILABLE);
+        property.setLotSize(propertyRequest.getLotSize());
+        property.setBuiltYear(propertyRequest.getBuiltYear());
+        property.setListingType(propertyRequest.getListingType());
+        property.setAddress(propertyRequest.getAddress());
+        property.setPropertyDetails(propertyRequest.getPropertyDetails());
+        propertyRepository.save(property);
+        return property;
     }
 
     @Override

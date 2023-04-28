@@ -2,6 +2,7 @@ package com.example.realEstate.controller;
 
 import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Property;
+import com.example.realEstate.entity.httpdata.PropertyRequest;
 import com.example.realEstate.service.OwnerService;
 import com.example.realEstate.service.PropertyService;
 import lombok.RequiredArgsConstructor;
@@ -28,8 +29,8 @@ public class OwnerController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{id}/properties")
-    public void save(@PathVariable long id, @RequestBody Property property) {
-        propertyService.addProperty(id, property);
+    public void save(@PathVariable long id, @RequestBody PropertyRequest propertyRequest) {
+        propertyService.addProperty(id, propertyRequest);
     }
 
     @ResponseStatus(HttpStatus.OK)
@@ -46,7 +47,7 @@ public class OwnerController {
     }
 
     @PutMapping("{id}/properties/{pptId}")
-    public void update(@PathVariable long id, @PathVariable("pptId") int propertyId, @RequestBody Property property) {
+    public void update(@PathVariable long id, @PathVariable("pptId") int propertyId, @RequestBody PropertyRequest property) {
         propertyService.updatePropertyById(id, propertyId, property);
     }
 

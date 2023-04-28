@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class Property {
     private List<Customer> customers;
 
     //added [createdAt]
-    private LocalDate startedDate;
+    private LocalDateTime createdAt;
 
     private long ownerId;
 }

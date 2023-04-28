@@ -7,6 +7,7 @@ import com.example.realEstate.entity.dto.request.SignupRequest;
 import com.example.realEstate.entity.dto.response.LoginResponse;
 import com.example.realEstate.entity.enums.RoleType;
 import com.example.realEstate.entity.enums.UserStatus;
+import com.example.realEstate.integration.EmailService;
 import com.example.realEstate.repository.RoleRepository;
 import com.example.realEstate.repository.UserRepository;
 import com.example.realEstate.util.JwtUtil;
@@ -82,7 +83,6 @@ public class AuthServiceImpl implements AuthService {
         String roleTypeString = signupRequest.getRole();
         RoleType roleTypeEnum= RoleType.valueOf(roleTypeString);
         User user;
-
 
         Role role = roleRepository.findByRole(roleTypeEnum);
 

@@ -4,6 +4,7 @@ import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Property;
 import com.example.realEstate.entity.enums.ListingType;
 import com.example.realEstate.entity.enums.PropertyType;
+import com.example.realEstate.entity.httpdata.PropertyRequest;
 import com.example.realEstate.repository.PropertyRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -19,10 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface PropertyService {
-    public void addProperty(long ownerId, Property property);
+    public void addProperty(long ownerId, PropertyRequest property);
     public List<Property> getAllPropertiesByOwnerId(long ownerId);
     public Property getPropertyById(long id);
-    public Property updatePropertyById(long ownerId, long id,Property property);
+    public Property updatePropertyById(long ownerId, long id, PropertyRequest propertyRequest);
     public void deleteByIdAndOwnerId(long id, long ownerId);
     public List<Offer> searchPropertyCriteria(Long id, Long pptId, String city, String state, Double price, LocalDateTime submittedAt);
     public List<Property> findPropertiesByCriteria(Double minPrice, Double maxPrice,

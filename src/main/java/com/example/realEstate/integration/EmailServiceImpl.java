@@ -1,4 +1,4 @@
-package com.example.realEstate.service;
+package com.example.realEstate.integration;
 
 import com.sendgrid.Method;
 import com.sendgrid.Request;
