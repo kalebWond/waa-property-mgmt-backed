@@ -3,11 +3,14 @@ package com.example.realEstate.controller;
 import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Property;
 import com.example.realEstate.entity.httpdata.PropertyRequest;
+import com.example.realEstate.integration.StorageService;
 import com.example.realEstate.service.OwnerService;
 import com.example.realEstate.service.PropertyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,6 +23,7 @@ public class OwnerController {
 
     private final PropertyService propertyService;
     private final OwnerService ownerService;
+    private final StorageService storageService;
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("{id}/properties")
@@ -28,8 +32,8 @@ public class OwnerController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/{id}/properties")
-    public void save(@PathVariable long id, @RequestBody PropertyRequest propertyRequest) {
+    @PostMapping(value = "/{id}/properties", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+    public void save(@PathVariable long id, @ModelAttribute PropertyRequest propertyRequest) {
         propertyService.addProperty(id, propertyRequest);
     }
 
@@ -70,6 +74,11 @@ public class OwnerController {
     @PutMapping("{id}/offers/{offerId}/decline")
     public void declineOffer(@PathVariable long id, @PathVariable("offerId") long offerId) {
         ownerService.declineOffer(id, offerId);
+    }
+
+    @PostMapping("/upload")
+    public void uploadFile(@RequestParam("file") MultipartFile file) {
+        storageService.save(file);
     }
 
 }

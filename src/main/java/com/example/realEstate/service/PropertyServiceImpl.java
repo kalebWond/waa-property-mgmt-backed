@@ -1,13 +1,11 @@
 package com.example.realEstate.service;
 
-import com.example.realEstate.entity.Offer;
-import com.example.realEstate.entity.Owner;
-import com.example.realEstate.entity.Photos;
-import com.example.realEstate.entity.Property;
+import com.example.realEstate.entity.*;
 import com.example.realEstate.entity.enums.ListingType;
 import com.example.realEstate.entity.enums.PropertyStatus;
 import com.example.realEstate.entity.enums.PropertyType;
 import com.example.realEstate.entity.httpdata.PropertyRequest;
+import com.example.realEstate.integration.StorageService;
 import com.example.realEstate.repository.OwnerRepository;
 import com.example.realEstate.repository.PropertyRepository;
 import com.example.realEstate.repository.SearchOffersDao;
@@ -19,6 +17,7 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -30,6 +29,7 @@ class PropertyServiceImpl implements PropertyService {
     private final PropertyRepository propertyRepository;
     private final OwnerRepository ownerRepository;
     private final SearchOffersDao searchOffersDao;
+    private final StorageService storageService;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -37,9 +37,16 @@ class PropertyServiceImpl implements PropertyService {
     @Override
     public void addProperty(long ownerId, PropertyRequest propertyRequest) {
         Owner owner = ownerRepository.findById(ownerId).orElseThrow(() -> new RuntimeException("Owner not found"));
-
+        storageService.save(propertyRequest.getFile());
         Property property = new Property();
+        Address address = new Address(propertyRequest.getStreet(), propertyRequest.getCity(), propertyRequest.getState(), propertyRequest.getZipcode());
+        PropertyDetails propertyDetails = new PropertyDetails(propertyRequest.isPet(), propertyRequest.getCooling(), propertyRequest.getHeater(), propertyRequest.getDeposit());
+        Photos photos = new Photos();
+        photos.setLink("http://localhost:8080/api/images/"+propertyRequest.getFile().getOriginalFilename());
         property.setPropertyType(propertyRequest.getPropertyType());
+        List<Photos> photosList = new ArrayList<>();
+        photosList.add(photos);
+        property.setPhotos(photosList);
         property.setPrice(propertyRequest.getPrice());
         property.setBedrooms(propertyRequest.getBedrooms());
         property.setBathrooms(propertyRequest.getBathrooms());
@@ -47,8 +54,8 @@ class PropertyServiceImpl implements PropertyService {
         property.setLotSize(propertyRequest.getLotSize());
         property.setBuiltYear(propertyRequest.getBuiltYear());
         property.setListingType(propertyRequest.getListingType());
-        property.setAddress(propertyRequest.getAddress());
-        property.setPropertyDetails(propertyRequest.getPropertyDetails());
+        property.setAddress(address);
+        property.setPropertyDetails(propertyDetails);
         property.setCreatedAt(LocalDateTime.now());
         property.setOwnerId(ownerId);
         owner.getProperties().add(property);

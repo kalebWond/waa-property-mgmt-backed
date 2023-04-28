@@ -20,4 +20,11 @@ public class PropertyDetails {
     private String cooling;
     private String heater;
     private double deposit;
+
+    public PropertyDetails(boolean pet, String cooling, String heater, double deposit) {
+        this.pet = pet;
+        this.cooling = cooling;
+        this.heater = heater;
+        this.deposit = deposit;
+    }
 }
