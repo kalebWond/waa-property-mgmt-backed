@@ -5,6 +5,7 @@ import com.example.realEstate.entity.Offer;
 import com.example.realEstate.entity.Property;
 import com.example.realEstate.entity.httpdata.OfferRequest;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface CustomerService {
@@ -15,7 +16,7 @@ public interface CustomerService {
 
     void removeFromFavorites(long customer_id, long property_id);
 
-    void makeOffer(OfferRequest offer, long customer_id);
+    void makeOffer(OfferRequest offer, long customer_id) throws IOException;
 
     List<Offer> getOffers(long customer_id);
 

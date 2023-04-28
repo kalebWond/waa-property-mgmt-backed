@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/api/v1/auth")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -28,7 +30,12 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> signUp(@RequestBody SignupRequest signupRequest){
-        User user = authService.signup(signupRequest);
+        User user = null;
+        try {
+            user = authService.signup(signupRequest);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return new ResponseEntity<User>(user, HttpStatus.OK);
 
     }
