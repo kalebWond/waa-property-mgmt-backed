@@ -15,7 +15,7 @@ import java.io.IOException;
 @Service
 public class EmailServiceImpl implements EmailService {
 
-    @Value("${spring.sendgrid.api-key}")
+    @Value("${sendgrid.api-key}")
     String api_key;
     @Override
     public void sendEmail(String to_address, String subject, String body) throws IOException {
