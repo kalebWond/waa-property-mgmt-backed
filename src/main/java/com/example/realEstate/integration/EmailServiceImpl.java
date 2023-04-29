@@ -20,7 +20,7 @@ public class EmailServiceImpl implements EmailService {
     @Override
     public void sendEmail(String to_address, String subject, String body) throws IOException {
         System.out.println(api_key);
-        Email from = new Email("kaleb.wond@gmail.com");
+        Email from = new Email("kidiste.gizachew@gmail.com");
         Email to = new Email(to_address);
         Content content = new Content("text/plain", body);
         Mail mail = new Mail(from, subject, to, content);
@@ -30,11 +30,11 @@ public class EmailServiceImpl implements EmailService {
 
     @Override
     public void sendWelcomeEmail(String to_address) throws IOException {
-        Email from = new Email("kaleb.wond@gmail.com");
+        Email from = new Email("kidiste.gizachew@gmail.com");
         Email to = new Email(to_address);
         Content content = new Content("text/plain", "Welcome to housing");
         Mail mail = new Mail(from, "Welcome", to, content);
-        mail.setTemplateId("d-98e74ca261c94374800420aaa80f6193");
+        mail.setTemplateId("d-cc72cd86d1764262a79adc29adf7dd78");
         sendGrid(mail);
     }
 

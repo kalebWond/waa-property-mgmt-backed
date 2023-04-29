@@ -69,7 +69,7 @@ public class CustomerServiceImpl implements CustomerService {
         Owner owner = ownerRepository.findById(offer.getOwnerId()).get();
         if(owner != null) {
             emailService.sendEmail(owner.getEmail(), "Offer has been made to your property"
-                    , "Hello "+owner.getFirstName()+",\n\nA customer has made a $"+String.valueOf(offer.getPrice())+" to your property.\n\nThe Housing.com team");
+                    , "Hello "+owner.getFirstName()+",\n\nA customer has made a $"+String.valueOf(offer.getPrice())+" offer to your property.\n\nThe Housing.com team");
         }
         customerRepository.save(customer);
     }
